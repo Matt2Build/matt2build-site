@@ -14,7 +14,7 @@ export default function Home() {
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Product engineering, AI agents, and infrastructure</h1>
         <p className="mt-6 text-lg opacity-80">Designing deployable products, automation, and tooling that scale. We build web apps, native apps, agent skills, and the infra to run them.</p>
         <div className="mt-8 flex justify-center gap-4">
-          <a className="px-5 py-3 bg-sky-500 text-black font-semibold rounded" href="mailto:matt@" onClick={(e)=>{e.preventDefault(); window.location='mailto:matt@';}}>Work with us</a>
+          <a className="px-5 py-3 bg-sky-500 text-black font-semibold rounded" href="mailto:matt2build@gmail.com">Work with us</a>
           <a className="px-5 py-3 border border-neutral-700 rounded" href="#case-studies">See case studies</a>
         </div>
       </section>
