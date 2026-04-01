@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="min-h-screen bg-neutral-900 text-neutral-100">
+    <main className="min-h-screen bg-white text-slate-900 antialiased">
       <header className="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between">
         <div className="text-xl font-semibold">Matt2Build</div>
         <nav className="space-x-6 text-sm opacity-80">
