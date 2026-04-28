@@ -37,10 +37,10 @@ export const metadata: Metadata = {
     siteName: 'Matt 2 Build',
     images: [
       {
-        url: '/gridview-banner.png',
-        width: 1500,
-        height: 500,
-        alt: 'Matt 2 Build project banner',
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Matt2Build — Custom Websites for Businesses',
       },
     ],
   },
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title: 'Custom Websites for Businesses | Matt2Build',
     description:
       'Custom websites with booking, payments, and workflows for businesses.',
-    images: ['/gridview-banner.png'],
+    images: ['/og-image.png'],
   },
 }
 
@@ -60,7 +60,40 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@graph': [
+                {
+                  '@type': 'LocalBusiness',
+                  name: 'Matt2Build',
+                  description:
+                    'Custom websites for businesses with online booking, payment processing, and custom workflows.',
+                  url: 'https://matt2build.com',
+                  email: 'matt2build@gmail.com',
+                  areaServed: 'US',
+                  priceRange: '$950+',
+                },
+                {
+                  '@type': 'Service',
+                  serviceType: 'Website Design & Development',
+                  provider: {
+                    '@type': 'LocalBusiness',
+                    name: 'Matt2Build',
+                  },
+                  description:
+                    'Custom website builds with online booking, payment processing, and business workflows.',
+                  url: 'https://matt2build.com',
+                },
+              ],
+            }),
+          }}
+        />
+        {children}
+      </body>
     </html>
   )
 }

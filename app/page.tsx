@@ -117,6 +117,7 @@ const projects = [
     href: 'https://gridviewpro.com',
     title: 'GridView Pro',
     eyebrow: 'Multi-pane AI workspace',
+    tag: 'AI & Productivity',
     accent: 'text-matrix-500',
     bg: 'from-emerald-900/50',
     description: 'Desktop workspace with stronger hierarchy and workflow templates.',
@@ -125,6 +126,7 @@ const projects = [
     href: 'https://moving2pnw.com',
     title: 'Moving2PNW',
     eyebrow: 'Real estate market data',
+    tag: 'Real Estate Intelligence',
     accent: 'text-blue-400',
     bg: 'from-blue-900/50',
     description: 'Washington housing and migration intelligence dashboards.',
@@ -133,6 +135,7 @@ const projects = [
     href: 'https://dist-livid-mu.vercel.app',
     title: 'Compass Property Service',
     eyebrow: 'Bulk materials delivery',
+    tag: 'Bulk Materials & Delivery',
     accent: 'text-orange-400',
     bg: 'from-orange-900/50',
     description: 'Online gravel/topsoil booking with delivery scheduling and quote requests.',
@@ -212,11 +215,17 @@ export default function Home() {
               </span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#pricing" className="link-hover text-gray-300 hover:text-matrix-400 transition-colors">
-                Pricing
+              <a href="#how-it-works" className="link-hover text-gray-300 hover:text-matrix-400 transition-colors">
+                How It Works
               </a>
               <a href="#what-you-get" className="link-hover text-gray-300 hover:text-matrix-400 transition-colors">
                 What You Get
+              </a>
+              <a href="#pricing" className="link-hover text-gray-300 hover:text-matrix-400 transition-colors">
+                Pricing
+              </a>
+              <a href="#faq" className="link-hover text-gray-300 hover:text-matrix-400 transition-colors">
+                FAQ
               </a>
               <a href="#contact" className="link-hover text-gray-300 hover:text-matrix-400 transition-colors">
                 Contact
@@ -230,7 +239,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-matrix-500/10 border border-matrix-500/25 mb-8">
-              <span className="text-matrix-400 text-sm font-mono">Accepting new clients across the US</span>
+              <span className="text-matrix-400 text-sm font-mono">Built for trades, service businesses, and local operations.</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
               <span className="text-white">Your next customer is looking for you online.</span>
@@ -282,6 +291,40 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="how-it-works" className="py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <div className="section-chip mx-auto mb-4">How It Works</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Three steps to a site that works</h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">No back-and-forth for months. I handle it.</p>
+          </div>
+
+          <div className="space-y-8">
+            <div className="flex gap-6 items-start">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-matrix-500/20 border border-matrix-500/40 flex items-center justify-center text-matrix-400 font-bold text-lg">1</div>
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-2">Tell Me What You Need</h3>
+                <p className="text-gray-400">Describe your business, your services, what you want online.</p>
+              </div>
+            </div>
+            <div className="flex gap-6 items-start">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-matrix-500/20 border border-matrix-500/40 flex items-center justify-center text-matrix-400 font-bold text-lg">2</div>
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-2">I Build It</h3>
+                <p className="text-gray-400">Custom site with booking, payments, and workflows built for your business.</p>
+              </div>
+            </div>
+            <div className="flex gap-6 items-start">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-matrix-500/20 border border-matrix-500/40 flex items-center justify-center text-matrix-400 font-bold text-lg">3</div>
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-2">You Go Live</h3>
+                <p className="text-gray-400">Launch day. You get a site that works — and I&apos;m here for any updates.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="what-you-get" className="py-20 bg-cyber-dark/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
@@ -318,7 +361,8 @@ export default function Home() {
               <div className="flex items-baseline gap-2 mb-4">
                 <span className="text-5xl font-bold text-white">$950</span>
               </div>
-              <p className="text-gray-400 mb-6">Complete custom website build with all features.</p>
+              <p className="text-gray-400 mb-3">Complete custom website build with all features.</p>
+              <p className="text-sm text-gray-500 mb-3">No contract — cancel anytime.</p>
               <ul className="space-y-3 text-sm">
                 {buildItems.map((item) => (
                   <li key={item} className="flex items-start gap-3">
@@ -337,7 +381,8 @@ export default function Home() {
                 <span className="text-5xl font-bold text-white">$75</span>
                 <span className="text-gray-400">/month</span>
               </div>
-              <p className="text-gray-400 mb-6">Hosting, maintenance, edits, and support.</p>
+              <p className="text-gray-400 mb-3">Hosting, maintenance, edits, and support.</p>
+              <p className="text-sm text-gray-500 mb-3">That&apos;s less than most businesses spend on coffee and gas each month to keep your front door open online.</p>
               <ul className="space-y-3 text-sm">
                 {retainerItems.map((item) => (
                   <li key={item} className="flex items-start gap-3">
@@ -355,6 +400,21 @@ export default function Home() {
             <a href="#contact" className="inline-block px-8 py-4 btn-primary bg-matrix-500 text-cyber-dark font-bold rounded hover:bg-matrix-400 transition-colors">
               Get Started
             </a>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 text-sm text-gray-400">
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" />
+              </svg>
+              <span>Built on Vercel</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z" />
+              </svg>
+              <span>Payments powered by Stripe</span>
+            </div>
           </div>
         </div>
       </section>
@@ -374,7 +434,8 @@ export default function Home() {
                   <div className="w-full h-full flex items-center justify-center bg-cyber-light/20 group-hover:bg-cyber-light/30 transition-colors">
                     <div className="text-center p-4">
                       <div className={`text-2xl font-bold ${project.accent} mb-2`}>{project.title.replace('Compass Property Service', 'Compass Property')}</div>
-                      <div className="text-sm text-gray-400">{project.eyebrow}</div>
+                      <div className="text-sm text-gray-400 mb-2">{project.eyebrow}</div>
+                      <div className="inline-block px-2 py-1 rounded text-xs font-mono bg-matrix-500/10 border border-matrix-500/25 text-matrix-400">{project.tag}</div>
                     </div>
                   </div>
                 </div>
@@ -382,6 +443,77 @@ export default function Home() {
                 <p className="text-sm text-gray-400 mt-1">{project.description}</p>
               </a>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className="py-20 bg-cyber-dark/50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <div className="section-chip mx-auto mb-4">FAQ</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+          </div>
+
+          <div className="space-y-4">
+            <details className="group bg-cyber-light/30 rounded-lg border border-cyber-light hover:border-matrix-500/50 transition-colors">
+              <summary className="px-6 py-4 cursor-pointer text-white font-semibold select-none list-none flex items-center justify-between">
+                How long does a build take?
+                <svg className="w-5 h-5 text-matrix-500 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="px-6 pb-4 text-gray-400">
+                Most sites are live within 1–2 weeks.
+              </div>
+            </details>
+
+            <details className="group bg-cyber-light/30 rounded-lg border border-cyber-light hover:border-matrix-500/50 transition-colors">
+              <summary className="px-6 py-4 cursor-pointer text-white font-semibold select-none list-none flex items-center justify-between">
+                Do I need to supply all the content?
+                <svg className="w-5 h-5 text-matrix-500 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="px-6 pb-4 text-gray-400">
+                No. I&apos;ll help write the copy, source images if needed.
+              </div>
+            </details>
+
+            <details className="group bg-cyber-light/30 rounded-lg border border-cyber-light hover:border-matrix-500/50 transition-colors">
+              <summary className="px-6 py-4 cursor-pointer text-white font-semibold select-none list-none flex items-center justify-between">
+                What if I already have a website?
+                <svg className="w-5 h-5 text-matrix-500 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="px-6 pb-4 text-gray-400">
+                I can rebuild it, migrate it, or improve what you have.
+              </div>
+            </details>
+
+            <details className="group bg-cyber-light/30 rounded-lg border border-cyber-light hover:border-matrix-500/50 transition-colors">
+              <summary className="px-6 py-4 cursor-pointer text-white font-semibold select-none list-none flex items-center justify-between">
+                What&apos;s included in the monthly retainer?
+                <svg className="w-5 h-5 text-matrix-500 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="px-6 pb-4 text-gray-400">
+                Hosting, backups, security, content updates, edits, and priority support.
+              </div>
+            </details>
+
+            <details className="group bg-cyber-light/30 rounded-lg border border-cyber-light hover:border-matrix-500/50 transition-colors">
+              <summary className="px-6 py-4 cursor-pointer text-white font-semibold select-none list-none flex items-center justify-between">
+                Is there a contract?
+                <svg className="w-5 h-5 text-matrix-500 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="px-6 pb-4 text-gray-400">
+                No. Month-to-month. Cancel anytime.
+              </div>
+            </details>
           </div>
         </div>
       </section>
@@ -481,7 +613,15 @@ export default function Home() {
                 matt<span className="text-matrix-500">2</span>build
               </span>
             </div>
-            <div className="text-gray-500 text-sm">© 2026 Matt2Build. Custom websites for businesses.</div>
+            <div className="flex items-center gap-4">
+              <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-matrix-500/10 border border-matrix-500/25">
+                <svg className="w-4 h-4 text-matrix-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7Z" />
+                </svg>
+                <span className="text-matrix-400 text-xs font-mono">Response time: 24hrs or less</span>
+              </div>
+              <div className="text-gray-500 text-sm">© 2026 Matt2Build. Custom websites for businesses.</div>
+            </div>
           </div>
         </div>
       </footer>
