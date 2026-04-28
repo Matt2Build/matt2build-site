@@ -12,11 +12,13 @@ const getResend = () => {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, email, projectType, timeline, details } = body
+    const { name, email, projectType, timeline, details, message } = body
+    const normalizedProjectType = projectType || 'Website Build'
+    const normalizedDetails = details || message
 
-    if (!name || !email || !details) {
+    if (!name || !email || !normalizedDetails) {
       return NextResponse.json(
-        { error: 'Name, email, and details are required' },
+        { error: 'Name, email, and message are required' },
         { status: 400 }
       )
     }
@@ -35,7 +37,7 @@ export async function POST(request: NextRequest) {
       from: 'Matt2Build Contact <contact@matt2build.com>',
       to: ['matt2build@gmail.com'],
       replyTo: email,
-      subject: `New inquiry from ${name} — ${projectType}`,
+      subject: `New inquiry from ${name} — ${normalizedProjectType}`,
       html: `
         <div style="font-family: system-ui, -apple-system, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
           <h2 style="color: #111; margin-bottom: 24px;">New Project Inquiry</h2>
@@ -51,7 +53,7 @@ export async function POST(request: NextRequest) {
             </tr>
             <tr>
               <td style="padding: 12px 0; border-bottom: 1px solid #eee; font-weight: 600;">Project Type</td>
-              <td style="padding: 12px 0; border-bottom: 1px solid #eee;">${projectType}</td>
+              <td style="padding: 12px 0; border-bottom: 1px solid #eee;">${normalizedProjectType}</td>
             </tr>
             <tr>
               <td style="padding: 12px 0; border-bottom: 1px solid #eee; font-weight: 600;">Timeline</td>
@@ -62,7 +64,7 @@ export async function POST(request: NextRequest) {
           <div style="margin-top: 24px;">
             <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">What needs help?</h3>
             <div style="background: #f5f5f5; padding: 16px; border-radius: 8px; white-space: pre-wrap; line-height: 1.6;">
-              ${details}
+              ${normalizedDetails}
             </div>
           </div>
           
@@ -76,11 +78,11 @@ export async function POST(request: NextRequest) {
 
 Name: ${name}
 Email: ${email}
-Project Type: ${projectType}
+Project Type: ${normalizedProjectType}
 Timeline: ${timeline || 'Not specified'}
 
 What needs help?
-${details}
+${normalizedDetails}
 
 ---
 This inquiry was submitted via matt2build.com
