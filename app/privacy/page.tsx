@@ -1,8 +1,16 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata = {
-  title: 'Privacy Policy | Matt 2 Build',
-  description: 'Privacy policy for Matt 2 Build and Cleo-powered workflows.',
+export const metadata: Metadata = {
+  title: 'Privacy Policy | Matt2Build',
+  description: 'Privacy policy for Matt2Build. Learn how we handle your data when you request website design and development services.',
+  robots: {
+    index: true,
+    follow: false,
+  },
+  alternates: {
+    canonical: 'https://matt2build.com/privacy',
+  },
 }
 
 export default function PrivacyPage() {

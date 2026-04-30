@@ -190,15 +190,7 @@ export default function Home() {
           backgroundSize: '100% 4px',
         }}
       />
-      <div
-        className="fixed inset-0 pointer-events-none z-50"
-        style={{
-          background: 'linear-gradient(rgba(34,197,94,0.25), rgba(34,197,94,0.05))',
-          transform: 'translateY(0vh)',
-          height: '2px',
-          transition: 'transform 0.05s linear',
-        }}
-      />
+      <div className="scanline" />
       <div className="fixed top-0 left-1/4 w-96 h-96 bg-matrix-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="fixed bottom-0 right-1/4 w-96 h-96 bg-matrix-500/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -359,7 +351,7 @@ export default function Home() {
             <div className="pricing-card bg-gradient-to-b from-matrix-500/10 to-cyber-dark border border-matrix-500/20 rounded-xl p-8">
               <div className="text-sm font-medium text-matrix-400 uppercase tracking-wide mb-2">One-Time Build</div>
               <div className="flex items-baseline gap-2 mb-4">
-                <span className="text-5xl font-bold text-white">$950</span>
+                <span className="text-5xl font-bold text-white">$750</span>
               </div>
               <p className="text-gray-400 mb-3">Complete custom website build with all features.</p>
               <p className="text-sm text-gray-500 mb-3">No contract — cancel anytime.</p>
@@ -378,7 +370,7 @@ export default function Home() {
             <div className="pricing-card bg-gradient-to-b from-cyber-light/30 to-cyber-dark border border-cyber-light/50 rounded-xl p-8">
               <div className="text-sm font-medium text-matrix-400 uppercase tracking-wide mb-2">Monthly Retainer</div>
               <div className="flex items-baseline gap-2 mb-4">
-                <span className="text-5xl font-bold text-white">$75</span>
+                <span className="text-5xl font-bold text-white">$50</span>
                 <span className="text-gray-400">/month</span>
               </div>
               <p className="text-gray-400 mb-3">Hosting, maintenance, edits, and support.</p>

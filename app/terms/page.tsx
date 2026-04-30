@@ -1,8 +1,16 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata = {
-  title: 'Terms of Service | Matt 2 Build',
-  description: 'Terms of service for Matt 2 Build and Cleo-powered workflows.',
+export const metadata: Metadata = {
+  title: 'Terms of Service | Matt2Build',
+  description: 'Terms of service for Matt2Build website design and development services.',
+  robots: {
+    index: true,
+    follow: false,
+  },
+  alternates: {
+    canonical: 'https://matt2build.com/terms',
+  },
 }
 
 export default function TermsPage() {

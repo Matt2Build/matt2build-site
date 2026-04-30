@@ -9,20 +9,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: baseUrl,
       lastModified,
-      changeFrequency: 'weekly',
-      priority: 1,
+      changeFrequency: 'weekly' as const,
+      priority: 1.0,
     },
     {
       url: `${baseUrl}/privacy`,
       lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.5,
+      changeFrequency: 'monthly' as const,
+      priority: 0.3,
     },
     {
       url: `${baseUrl}/terms`,
       lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.5,
+      changeFrequency: 'monthly' as const,
+      priority: 0.3,
     },
   ]
 }
