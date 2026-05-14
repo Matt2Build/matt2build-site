@@ -130,18 +130,23 @@ export default function RootLayout({
                     '@type': 'Country',
                     name: 'United States',
                   },
-                  offers: {
-                    '@type': 'Offer',
-                    price: '750',
-                    priceCurrency: 'USD',
-                    description: 'One-time custom website build fee',
-                  },
-                  aggregateRating: {
-                    '@type': 'AggregateRating',
-                    ratingValue: '5',
-                    bestRating: '5',
-                    worstRating: '1',
-                    ratingCount: '3',
+
+                  hasOfferCatalog: {
+                    '@type': 'OfferCatalog',
+                    name: 'Website Design Services',
+                    itemListElement: [
+                      {
+                        '@type': 'Offer',
+                        position: 1,
+                        itemOffered: {
+                          '@type': 'Service',
+                          name: 'Custom Website Design & Development',
+                        },
+                        price: '750',
+                        priceCurrency: 'USD',
+                        description: 'One-time custom website build fee',
+                      },
+                    ],
                   },
                 },
                 {
