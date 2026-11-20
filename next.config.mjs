@@ -2,6 +2,21 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.matt2build.com',
+          },
+        ],
+        destination: 'https://matt2build.com/:path*',
+        statusCode: 301,
+      },
+    ]
+  },
   headers() {
     return [
       {

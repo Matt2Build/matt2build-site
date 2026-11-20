@@ -1,7 +1,10 @@
-import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
+import { Resend } from 'resend'
+import { escapeHtml, sanitizePlainText, sanitizeSingleLine } from '@/lib/email-sanitize'
 
-const getResend = () => {
+const EMAIL_PATTERN = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
+
+function getResend() {
   const apiKey = process.env.RESEND_API_KEY
   if (!apiKey) {
     throw new Error('RESEND_API_KEY is not configured')
@@ -11,98 +14,95 @@ const getResend = () => {
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json()
-    const { name, email, projectType, timeline, details, message } = body
-    const normalizedProjectType = projectType || 'Website Build'
-    const normalizedDetails = details || message
+    const body: unknown = await request.json()
+    if (!body || typeof body !== 'object') {
+      return NextResponse.json({ error: 'Invalid request' }, { status: 400 })
+    }
 
-    if (!name || !email || !normalizedDetails) {
+    const data = body as Record<string, unknown>
+
+    if (typeof data.fax_number === 'string' && data.fax_number.trim() !== '') {
+      return NextResponse.json({ success: true })
+    }
+
+    const name = sanitizeSingleLine(data.name, 100)
+    const email = sanitizeSingleLine(data.email, 254)
+    const market = sanitizeSingleLine(data.market, 160)
+    const message = sanitizePlainText(data.message, 4000)
+
+    if (!name || !email || !market || !message) {
       return NextResponse.json(
-        { error: 'Name, email, and message are required' },
-        { status: 400 }
+        { error: 'Name, email, market, and message are required' },
+        { status: 400 },
       )
     }
 
-    // Basic email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: 'Please provide a valid email address' },
-        { status: 400 }
-      )
+    if (!EMAIL_PATTERN.test(email)) {
+      return NextResponse.json({ error: 'Please provide a valid email address' }, { status: 400 })
     }
+
+    const safeName = escapeHtml(name)
+    const safeEmail = escapeHtml(email)
+    const safeMarket = escapeHtml(market)
+    const safeMessage = escapeHtml(message)
 
     const resend = getResend()
-    const { data, error } = await resend.emails.send({
+    const { data: sent, error } = await resend.emails.send({
       from: 'Matt2Build Contact <contact@matt2build.com>',
       to: ['matt2build@gmail.com'],
       replyTo: email,
-      subject: `New inquiry from ${name} — ${normalizedProjectType}`,
+      subject: `New inquiry from ${name}`,
       html: `
         <div style="font-family: system-ui, -apple-system, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
-          <h2 style="color: #111; margin-bottom: 24px;">New Project Inquiry</h2>
-          
+          <h2 style="color: #111; margin-bottom: 24px;">New agent inquiry</h2>
           <table style="width: 100%; border-collapse: collapse;">
             <tr>
-              <td style="padding: 12px 0; border-bottom: 1px solid #eee; font-weight: 600; width: 120px;">Name</td>
-              <td style="padding: 12px 0; border-bottom: 1px solid #eee;">${name}</td>
+              <td style="padding: 12px 0; border-bottom: 1px solid #eee; font-weight: 600; width: 160px;">Name</td>
+              <td style="padding: 12px 0; border-bottom: 1px solid #eee;">${safeName}</td>
             </tr>
             <tr>
               <td style="padding: 12px 0; border-bottom: 1px solid #eee; font-weight: 600;">Email</td>
-              <td style="padding: 12px 0; border-bottom: 1px solid #eee;">${email}</td>
+              <td style="padding: 12px 0; border-bottom: 1px solid #eee;">${safeEmail}</td>
             </tr>
             <tr>
-              <td style="padding: 12px 0; border-bottom: 1px solid #eee; font-weight: 600;">Project Type</td>
-              <td style="padding: 12px 0; border-bottom: 1px solid #eee;">${normalizedProjectType}</td>
-            </tr>
-            <tr>
-              <td style="padding: 12px 0; border-bottom: 1px solid #eee; font-weight: 600;">Timeline</td>
-              <td style="padding: 12px 0; border-bottom: 1px solid #eee;">${timeline || 'Not specified'}</td>
+              <td style="padding: 12px 0; border-bottom: 1px solid #eee; font-weight: 600;">Market / brokerage</td>
+              <td style="padding: 12px 0; border-bottom: 1px solid #eee;">${safeMarket}</td>
             </tr>
           </table>
-          
           <div style="margin-top: 24px;">
-            <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">What needs help?</h3>
-            <div style="background: #f5f5f5; padding: 16px; border-radius: 8px; white-space: pre-wrap; line-height: 1.6;">
-              ${normalizedDetails}
-            </div>
+            <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">What they need</h3>
+            <div style="background: #f5f5f5; padding: 16px; border-radius: 8px; white-space: pre-wrap; line-height: 1.6;">${safeMessage}</div>
           </div>
-          
-          <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #eee; color: #666; font-size: 14px;">
-            <p>This inquiry was submitted via matt2build.com</p>
-            <p style="margin-top: 8px;">Reply to this email to respond directly to ${name}.</p>
-          </div>
+          <p style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #eee; color: #666; font-size: 14px;">
+            Sent from the contact form on matt2build.com. Reply to this email to reach ${safeName}.
+          </p>
         </div>
       `,
-      text: `New Project Inquiry
+      text: `New agent inquiry
 
 Name: ${name}
 Email: ${email}
-Project Type: ${normalizedProjectType}
-Timeline: ${timeline || 'Not specified'}
+Market / brokerage: ${market}
 
-What needs help?
-${normalizedDetails}
+What they need:
+${message}
 
 ---
-This inquiry was submitted via matt2build.com
-Reply to respond directly to ${name}.`,
+Sent from the contact form on matt2build.com.
+Reply to this email to reach ${name}.`,
     })
 
     if (error) {
-      console.error('Resend error:', error)
-      return NextResponse.json(
-        { error: 'Failed to send email' },
-        { status: 500 }
-      )
+      console.error('Contact email failed')
+      return NextResponse.json({ error: 'Failed to send email' }, { status: 500 })
     }
 
-    return NextResponse.json({ success: true, id: data?.id })
+    return NextResponse.json({ success: true, id: sent?.id })
   } catch (error) {
-    console.error('Contact form error:', error)
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    )
+    console.error('Contact form error')
+    if (error instanceof Error && error.message === 'RESEND_API_KEY is not configured') {
+      return NextResponse.json({ error: 'Email is not configured' }, { status: 500 })
+    }
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

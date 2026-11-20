@@ -4,10 +4,12 @@ import { FormEvent, useState } from 'react'
 
 type SubmitState = 'idle' | 'sending' | 'success' | 'error'
 
-export default function ContactForm() {
+export function ContactForm() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [market, setMarket] = useState('')
   const [message, setMessage] = useState('')
+  const [faxNumber, setFaxNumber] = useState('')
   const [submitState, setSubmitState] = useState<SubmitState>('idle')
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -21,9 +23,9 @@ export default function ContactForm() {
         body: JSON.stringify({
           name,
           email,
+          market,
           message,
-          projectType: 'Custom Website Build',
-          timeline: 'Not specified',
+          fax_number: faxNumber,
         }),
       })
 
@@ -33,7 +35,9 @@ export default function ContactForm() {
 
       setName('')
       setEmail('')
+      setMarket('')
       setMessage('')
+      setFaxNumber('')
       setSubmitState('success')
     } catch {
       setSubmitState('error')
@@ -41,83 +45,117 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-20">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <div className="section-chip mx-auto mb-4">Contact</div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Let&apos;s talk</h2>
-          <p className="text-gray-400 text-lg">
-            Tell me about your business and what you need. I&apos;ll get back to you within 24 hours.
-          </p>
+    <form className="p-6 sm:p-8 bg-cyber-light/30 rounded-xl border border-cyber-light" onSubmit={onSubmit} noValidate={false}>
+      <div className="space-y-5">
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-2">
+            Name
+          </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            autoComplete="name"
+            maxLength={100}
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            className="w-full px-4 py-3 bg-cyber-dark border border-cyber-light rounded text-white placeholder-gray-500 focus:outline-none focus:border-matrix-500"
+            placeholder="Your name"
+          />
         </div>
 
-        <form className="p-8 bg-cyber-light/30 rounded-xl border border-cyber-light" onSubmit={onSubmit}>
-          <div className="space-y-5">
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Name</label>
-              <input
-                type="text"
-                required
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-                className="w-full px-4 py-3 bg-cyber-dark border border-cyber-light rounded text-white placeholder-gray-500 focus:outline-none focus:border-matrix-500 transition-colors"
-                placeholder="Your name"
-              />
-            </div>
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-2">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+            maxLength={254}
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            className="w-full px-4 py-3 bg-cyber-dark border border-cyber-light rounded text-white placeholder-gray-500 focus:outline-none focus:border-matrix-500"
+            placeholder="you@brokerage.com"
+          />
+        </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                className="w-full px-4 py-3 bg-cyber-dark border border-cyber-light rounded text-white placeholder-gray-500 focus:outline-none focus:border-matrix-500 transition-colors"
-                placeholder="you@yourbusiness.com"
-              />
-            </div>
+        <div>
+          <label htmlFor="market" className="block text-sm font-medium text-gray-200 mb-2">
+            Market / brokerage
+          </label>
+          <input
+            id="market"
+            name="market"
+            type="text"
+            required
+            maxLength={160}
+            value={market}
+            onChange={(event) => setMarket(event.target.value)}
+            className="w-full px-4 py-3 bg-cyber-dark border border-cyber-light rounded text-white placeholder-gray-500 focus:outline-none focus:border-matrix-500"
+            placeholder="City, state, and brokerage"
+          />
+        </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Tell me about your business</label>
-              <textarea
-                required
-                rows={5}
-                value={message}
-                onChange={(event) => setMessage(event.target.value)}
-                className="w-full px-4 py-3 bg-cyber-dark border border-cyber-light rounded text-white placeholder-gray-500 focus:outline-none focus:border-matrix-500 transition-colors resize-none"
-                placeholder="What does your business do? What do you need your website to do for you?"
-              />
-            </div>
+        <div>
+          <label htmlFor="message" className="block text-sm font-medium text-gray-200 mb-2">
+            What you need
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows={6}
+            maxLength={4000}
+            value={message}
+            onChange={(event) => setMessage(event.target.value)}
+            className="w-full px-4 py-3 bg-cyber-dark border border-cyber-light rounded text-white placeholder-gray-500 focus:outline-none focus:border-matrix-500 resize-y"
+            placeholder="A website, a tool, or both, and what you want it to do."
+          />
+        </div>
 
-            {submitState === 'success' && (
-              <div className="rounded-lg border border-matrix-500/30 bg-matrix-500/10 px-4 py-3 text-sm text-matrix-400">
-                Message sent. I&apos;ll get back to you within 24 hours.
-              </div>
-            )}
+        <div className="hp-field" aria-hidden="true">
+          <label htmlFor="fax_number">Fax</label>
+          <input
+            id="fax_number"
+            name="fax_number"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={faxNumber}
+            onChange={(event) => setFaxNumber(event.target.value)}
+          />
+        </div>
 
-            {submitState === 'error' && (
-              <div className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300">
-                Something went wrong. Try again or email matt2build@gmail.com directly.
-              </div>
-            )}
+        <div aria-live="polite">
+          {submitState === 'success' ? (
+            <p className="rounded-lg border border-matrix-500/30 bg-matrix-500/10 px-4 py-3 text-sm text-matrix-300">
+              Message sent. I&apos;ll reply within one business day.
+            </p>
+          ) : null}
+          {submitState === 'error' ? (
+            <p className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+              Something went wrong. Email{' '}
+              <a className="underline" href="mailto:matt2build@gmail.com">
+                matt2build@gmail.com
+              </a>{' '}
+              and I&apos;ll reply from there.
+            </p>
+          ) : null}
+        </div>
 
-            <button
-              type="submit"
-              disabled={submitState === 'sending'}
-              className="w-full px-6 py-4 btn-primary bg-matrix-500 text-cyber-dark font-bold rounded hover:bg-matrix-400 transition-colors disabled:opacity-60"
-            >
-              {submitState === 'sending' ? 'Sending...' : 'Send Message'}
-            </button>
-          </div>
-        </form>
-
-        <p className="text-center text-gray-500 text-sm mt-6">
-          Or email me directly at{' '}
-          <a href="mailto:matt2build@gmail.com" className="text-matrix-400 hover:underline">
-            matt2build@gmail.com
-          </a>
-        </p>
+        <button
+          type="submit"
+          disabled={submitState === 'sending'}
+          aria-busy={submitState === 'sending'}
+          className="w-full btn-primary cursor-pointer disabled:opacity-60 disabled:cursor-wait"
+        >
+          {submitState === 'sending' ? 'Sending…' : 'Send message'}
+        </button>
       </div>
-    </section>
+    </form>
   )
 }
