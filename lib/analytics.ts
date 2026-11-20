@@ -24,26 +24,16 @@ export function initAnalytics(): void {
     capture_pageleave: false,
     disable_session_recording: true,
     disable_surveys: true,
+    before_send: (event) => {
+      event.properties.site = window.location.pathname.startsWith('/demo') ? 'demo' : 'main'
+      return event
+    },
   })
   started = true
-}
-
-export function syncDemoProperty(pathname: string): void {
-  if (!process.env.NEXT_PUBLIC_POSTHOG_KEY || typeof window === 'undefined') return
-  initAnalytics()
-  if (pathname.startsWith('/demo')) {
-    posthog.register({ site: 'demo' })
-  } else {
-    posthog.unregister('site')
-  }
 }
 
 export function captureEvent(event: string, properties?: Record<string, string>): void {
   if (typeof window === 'undefined' || !process.env.NEXT_PUBLIC_POSTHOG_KEY) return
   initAnalytics()
-  const onDemo = window.location.pathname.startsWith('/demo')
-  posthog.capture(event, {
-    ...properties,
-    ...(onDemo ? { site: 'demo' } : {}),
-  })
+  posthog.capture(event, properties)
 }

@@ -83,7 +83,7 @@ export default function HomePage() {
               Websites and tools for real estate agents.
             </h1>
             <p className="mt-5 text-base sm:text-lg text-gray-300 max-w-xl leading-relaxed">
-              I build custom websites and tools for agents anywhere in the U.S. I&apos;m a licensed realtor since 2014,
+              I build custom websites and tools for agents anywhere in the U.S. I&apos;ve been a licensed realtor since 2014,
               and{' '}
               <Link href="/brokerage-switch" className="text-matrix-400 hover:underline">
                 the site stays yours if you change brokerages
