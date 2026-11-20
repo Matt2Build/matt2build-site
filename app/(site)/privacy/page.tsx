@@ -44,9 +44,10 @@ export default function PrivacyPage() {
             <h2 className="text-2xl font-semibold text-white mb-3">Information you send</h2>
             <p>
               If you use the contact form, I receive your name, email address, market or brokerage, and what you
-              write in the message. If you email me, I receive whatever you send. I use that to reply and, if we
-              work together, to do the work. I don&apos;t sell it, and sending a message does not add you to a
-              mailing list.
+              write in the message. If you use the teardown form, I also receive the website URL you send, plus any
+              market or note you add, and I use that to write the teardown. If you email me, I receive whatever you
+              send. I use that to reply and, if we work together, to do the work. I don&apos;t sell it, and sending a
+              message does not add you to a mailing list.
             </p>
             <p className="mt-4">
               The form is delivered by email from contact@matt2build.com to {CONTACT_EMAIL} through Resend, the

@@ -1,8 +1,5 @@
 import type { Metadata } from 'next'
-import { PageShell } from '@/components/page-shell'
-import { JsonLd } from '@/components/json-ld'
 import { SITE_NAME, X_HANDLE } from '@/lib/site'
-import { siteGraph } from '@/lib/structured-data'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -71,8 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="font-sans bg-cyber-dark text-gray-100">
         <script async defer data-domain="matt2build.com" src="https://plausible.io/js/plausible.js"></script>
-        <JsonLd data={siteGraph} />
-        <PageShell>{children}</PageShell>
+        {children}
       </body>
     </html>
   )

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { FaqList } from '@/components/faq-list'
 import { JsonLd } from '@/components/json-ld'
+import { ComparisonTable } from '@/components/comparison-table'
 import { PricingCards } from '@/components/pricing-cards'
 import { pageMetadata } from '@/lib/metadata'
 import { BUILD_PRICE, MONTHLY_PRICE, pricingFaqs } from '@/lib/site'
@@ -43,6 +44,15 @@ export default function PricingPage() {
             Custom tools beyond the standard stack are quoted separately. I don&apos;t include IDX or MLS listing
             feeds.
           </p>
+        </div>
+      </section>
+
+      <section id="compare" className="scroll-mt-24 py-12" aria-labelledby="compare-heading">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 id="compare-heading" className="text-3xl font-bold text-white mb-8">
+            How it compares
+          </h2>
+          <ComparisonTable />
         </div>
       </section>
 

@@ -32,6 +32,17 @@ export default function PortfolioPage() {
           <h2 id="featured-work" className="sr-only">
             Real estate products
           </h2>
+          <Link
+            href="/demo"
+            className="mb-16 block rounded-3xl border border-matrix-500/30 bg-matrix-500/[0.06] p-8 sm:p-10"
+          >
+            <p className="section-chip mb-4">Live demo</p>
+            <h2 className="text-3xl font-bold text-white">See a live demo</h2>
+            <p className="mt-3 max-w-2xl text-gray-300 leading-7">
+              Click through a sample site for a fictional agent: neighborhood guides, buyer and seller steps, and
+              calculators, without a listing feed.
+            </p>
+          </Link>
           <div className="space-y-20">
             {featuredProjects.map((project) => (
               <ProjectArticle key={project.id} project={project} />
