@@ -13,7 +13,7 @@ export const metadata = pageMetadata({ title, description, path: '/', absolute: 
 const benefits = [
   { title: 'Custom, not a template', line: 'Designed around you and your market.' },
   { title: 'You own the domain', line: 'It stays with you if you change brokerages.' },
-  { title: 'Built by an agent', line: 'Twelve years selling homes, and I build the tools.' },
+  { title: 'Built by an agent', line: 'Selling homes since 2014, and I build the tools.' },
   { title: 'Anywhere in the U.S.', line: 'I work with agents in any state.' },
 ]
 
@@ -70,8 +70,8 @@ export default function HomePage() {
               Websites and tools for real estate agents.
             </h1>
             <p className="mt-5 text-base sm:text-lg text-gray-300 max-w-xl leading-relaxed">
-              I build custom websites and tools for agents anywhere in the U.S. I&apos;m a licensed realtor of 12
-              years, and the site stays yours if you change brokerages.
+              I build custom websites and tools for agents anywhere in the U.S. I&apos;m a licensed realtor since 2014,
+              and the site stays yours if you change brokerages.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Link href="/contact" className="btn-primary">
