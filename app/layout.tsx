@@ -1,34 +1,29 @@
 import type { Metadata } from 'next'
+import { PageShell } from '@/components/page-shell'
+import { JsonLd } from '@/components/json-ld'
+import { SITE_NAME, X_HANDLE } from '@/lib/site'
+import { siteGraph } from '@/lib/structured-data'
 import './globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://matt2build.com'),
   title: {
-    default: 'Custom Websites for Businesses | Matt2Build',
-    template: '%s | Matt2Build',
+    default: 'Websites and Tools for Real Estate Agents',
+    template: `%s | ${SITE_NAME}`,
   },
   description:
-    'Custom websites with online booking, payment processing, and custom workflows for trades and service businesses. $750 build + $50/mo hosting & support.',
+    'Custom websites and tools for real estate agents anywhere in the U.S., built by a working agent. $750 to build. $50 a month. You own the domain.',
   keywords: [
-    'custom website design',
-    'website development for small business',
-    'online booking website',
-    'payment processing website',
-    'custom web developer',
-    'website for trades',
-    'website for contractors',
-    'service business website',
-    'local business website',
-    'website with booking system',
-    'affordable custom website',
+    'real estate agent website',
+    'custom realtor website',
+    'real estate agent web design',
+    'brokerage independent agent website',
     'Matt2Build',
+    'Matt Salit',
   ],
-  authors: [{ name: 'Matt', url: 'https://matt2build.com' }],
-  creator: 'Matt2Build',
-  publisher: 'Matt2Build',
-  alternates: {
-    canonical: 'https://matt2build.com',
-  },
+  authors: [{ name: 'Matt Salit', url: 'https://matt2build.com' }],
+  creator: 'Matt Salit',
+  publisher: SITE_NAME,
   robots: {
     index: true,
     follow: true,
@@ -38,132 +33,46 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Custom Websites for Businesses | Matt2Build',
+    title: 'Websites and Tools for Real Estate Agents | Matt2Build',
     description:
-      'Custom websites with online booking, payment processing, and custom workflows for trades and service businesses.',
+      'Custom websites and tools for real estate agents anywhere in the U.S., built by a working agent.',
     type: 'website',
     locale: 'en_US',
     url: 'https://matt2build.com',
-    siteName: 'Matt2Build',
+    siteName: SITE_NAME,
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Matt2Build — Custom Websites with Booking, Payments & Workflows',
+        alt: 'Matt2Build — websites and tools for real estate agents, built by a working agent.',
         type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Custom Websites for Businesses | Matt2Build',
+    title: 'Websites and Tools for Real Estate Agents | Matt2Build',
     description:
-      'Custom websites with online booking, payment processing, and custom workflows for trades and service businesses.',
-    creator: '@matt2build',
+      'Custom websites and tools for real estate agents anywhere in the U.S., built by a working agent.',
+    creator: X_HANDLE,
     images: ['/og-image.png'],
+  },
+  icons: {
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
   verification: {
     google: '3ec2a664f5fa558d',
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="font-sans">
-        {/* Lightweight Plausible Analytics snippet */}
+      <body className="font-sans bg-cyber-dark text-gray-100">
         <script async defer data-domain="matt2build.com" src="https://plausible.io/js/plausible.js"></script>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@graph': [
-                {
-                  '@type': 'WebSite',
-                  name: 'Matt2Build',
-                  url: 'https://matt2build.com',
-                  description: 'Custom websites for businesses with online booking, payment processing, and custom workflows.',
-                },
-                {
-                  '@type': 'Organization',
-                  '@id': 'https://matt2build.com/#organization',
-                  name: 'Matt2Build',
-                  url: 'https://matt2build.com',
-                  email: 'matt2build@gmail.com',
-                  sameAs: [
-  "https://www.linkedin.com/in/matt-salit-8108003ba/",
-  "https://x.com/Matt2Build"
-],
-                },
-                {
-                  '@type': 'LocalBusiness',
-                  '@id': 'https://matt2build.com/#localbusiness',
-                  name: 'Matt2Build',
-                  description:
-                    'Custom websites for businesses with online booking, payment processing, and custom workflows.',
-                  url: 'https://matt2build.com',
-                  email: 'matt2build@gmail.com',
-                  areaServed: {
-                    '@type': 'Country',
-                    name: 'United States',
-                  },
-                  priceRange: '$750+',
-                  knowsAbout: ['Web Design', 'Web Development', 'E-commerce', 'Online Booking Systems'],
-                },
-                {
-                  '@type': 'Service',
-                  '@id': 'https://matt2build.com/#service',
-                  serviceType: 'Custom Website Design & Development',
-                  provider: {
-                    '@id': 'https://matt2build.com/#localbusiness',
-                  },
-                  description:
-                    'Custom website builds with online booking, payment processing, and business workflows for trades and service businesses.',
-                  url: 'https://matt2build.com',
-                  areaServed: {
-                    '@type': 'Country',
-                    name: 'United States',
-                  },
-
-                  hasOfferCatalog: {
-                    '@type': 'OfferCatalog',
-                    name: 'Website Design Services',
-                    itemListElement: [
-                      {
-                        '@type': 'Offer',
-                        position: 1,
-                        itemOffered: {
-                          '@type': 'Service',
-                          name: 'Custom Website Design & Development',
-                        },
-                        price: '750',
-                        priceCurrency: 'USD',
-                        description: 'One-time custom website build fee',
-                      },
-                    ],
-                  },
-                },
-                {
-                  '@type': 'WebPage',
-                  '@id': 'https://matt2build.com/#webpage',
-                  url: 'https://matt2build.com',
-                  name: 'Custom Websites for Businesses | Matt2Build',
-                  description: 'Custom websites with booking, payments, and workflows for businesses.',
-                  isPartOf: {
-                    '@id': 'https://matt2build.com/#website',
-                  },
-                },
-              ],
-            }),
-          }}
-        />
-        {children}
+        <JsonLd data={siteGraph} />
+        <PageShell>{children}</PageShell>
       </body>
     </html>
   )
