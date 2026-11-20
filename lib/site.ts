@@ -5,7 +5,7 @@ export const BUILD_PRICE = '$750'
 export const MONTHLY_PRICE = '$50'
 export const BUILD_PRICE_AMOUNT = '750'
 export const MONTHLY_PRICE_AMOUNT = '50'
-export const POLICY_UPDATED = 'November 19, 2026'
+export const POLICY_UPDATED = 'November 20, 2026'
 
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/matt-salit-8108003ba/'
 export const X_URL = 'https://x.com/soldwithsalit'
@@ -36,7 +36,7 @@ export const standardStack: StackItem[] = [
     title: 'Mobile-first layout',
     summary: 'Laid out for a phone first, then a larger screen.',
     detail:
-      'Most people will open your site on a phone. I design that screen first, then scale it up so a desktop still feels intentional.',
+      'Most people will open your site on a phone. I design that screen first, then make the bigger screen just as clear.',
   },
   {
     title: 'Bio and about page',
@@ -60,7 +60,7 @@ export const standardStack: StackItem[] = [
     title: 'SEO setup and structured data',
     summary: 'Titles, descriptions, and structured data search engines can read.',
     detail:
-      'Each page gets a real title and description, and structured data that describes you and the site. No fake ratings.',
+      "Each page gets a real title and description, plus the extra details search engines read. I don't add made-up reviews.",
   },
   {
     title: 'Analytics',
@@ -70,9 +70,9 @@ export const standardStack: StackItem[] = [
   },
   {
     title: 'Launch on your domain',
-    summary: 'The site goes live on a domain in your name.',
+    summary: 'The site goes live on a domain in your own account.',
     detail:
-      'When the site is ready, I launch it on the domain you own and walk through it with you. I can register it, connect it, and manage DNS, email records, and renewals. Registration and renewal fees stay with you. The domain stays in your name.',
+      'When the site is ready, I launch it and walk through it with you. I register the domain in your own registrar account, or I transfer it to you. I can manage DNS, email records, and renewals. The registrar bill stays with you.',
   },
 ]
 
@@ -81,7 +81,7 @@ export const monthlyIncludes = [
   'Maintenance',
   'Domain management',
   'Back-end support',
-  'Month to month, cancel anytime',
+  'Month to month. Cancel anytime. No cancellation fee.',
 ]
 
 export type Faq = {
@@ -96,7 +96,7 @@ export const pricingFaqs: Faq[] = [
   },
   {
     question: 'Do I need to supply all the content?',
-    answer: "No. I'll help write the copy, source images if needed.",
+    answer: "No. I'll help write the words, and I'll find photos if you need them.",
   },
   {
     question: 'What if I already have a website?',
@@ -105,16 +105,16 @@ export const pricingFaqs: Faq[] = [
   {
     question: "What's included in the monthly plan?",
     answer:
-      'Hosting, maintenance, domain management, and back-end support. It is optional, month to month, and you can cancel anytime.',
+      "Hosting, maintenance, domain management, and back-end support. It's optional and month to month. Cancel anytime. There's no cancellation fee.",
   },
   {
     question: 'Is there a contract?',
-    answer: 'No. Month-to-month. Cancel anytime.',
+    answer: "No. It's month to month. Cancel anytime. There's no cancellation fee.",
   },
   {
-    question: 'Do you include IDX or listing feeds?',
+    question: 'Do you include listing search (IDX)?',
     answer:
-      "No. MLS rules don't allow me to put an IDX or MLS listing feed on your site. I build the marketing site and the tools you own.",
+      "No. Listing search (IDX) is licensed through your own MLS and broker, so it isn't included in the build.",
   },
   {
     question: 'Do you work with agents anywhere in the U.S.?',
@@ -123,12 +123,12 @@ export const pricingFaqs: Faq[] = [
   },
   {
     question: 'What if I want a tool beyond the standard stack?',
-    answer: 'Custom tools beyond the standard stack are quoted separately.',
+    answer: "If you want a tool past the usual site, I'll price it on its own before I start.",
   },
   {
     question: 'Who owns the domain and the site?',
     answer:
-      'You do. I can register, connect, and manage the domain, and it stays in your name if you change brokerages.',
+      "You do. I register the domain in your own registrar account, or I transfer it to you. It stays yours if you change brokerages.",
   },
   {
     question: 'Do I have to pay monthly?',
@@ -138,7 +138,12 @@ export const pricingFaqs: Faq[] = [
   {
     question: 'Can you handle the domain?',
     answer:
-      'Yes. I can register it, connect it, and manage DNS, email records, and renewals. The domain stays in your name.',
+      'Yes. I can register it in your own account, connect it, and manage DNS, email records, and renewals. Or I can transfer a domain you already have.',
+  },
+  {
+    question: 'What happens if I cancel?',
+    answer:
+      "Cancel anytime. No contract and no cancellation fee. I'll hand over your domain, the site's code and files, and your images and content, so you can host it anywhere.",
   },
 ]
 
@@ -147,7 +152,7 @@ export const homeFaqs: Faq[] = [
   pricingFaqs[5],
   {
     question: 'What does a site cost?',
-    answer: `${BUILD_PRICE} once for the custom build. ${MONTHLY_PRICE} a month is optional, for hosting, maintenance, domain management, and back-end support. Cancel anytime. Custom tools beyond the standard stack are quoted separately.`,
+    answer: `${BUILD_PRICE} once for the custom build. ${MONTHLY_PRICE} a month is optional, for hosting, maintenance, domain management, and back-end support. Cancel anytime. There's no cancellation fee. A tool past the usual site is priced on its own.`,
   },
   pricingFaqs[8],
   pricingFaqs[4],

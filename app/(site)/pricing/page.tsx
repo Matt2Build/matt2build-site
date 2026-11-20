@@ -29,7 +29,8 @@ export default function PricingPage() {
           <p className="text-3xl md:text-4xl font-bold text-white mb-4">{BUILD_PRICE} to build.</p>
           <p className="text-lg text-gray-300 leading-8">
             Want it handled? {MONTHLY_PRICE}/month covers hosting, maintenance, domain management and back-end
-            support. Month to month, cancel anytime. I build for agents anywhere in the United States.
+            support. Month to month. Cancel anytime. No cancellation fee. I build for agents anywhere in the
+            United States.
           </p>
         </div>
       </section>
@@ -41,8 +42,8 @@ export default function PricingPage() {
           </h2>
           <PricingCards />
           <p className="text-gray-400 text-center mt-8 leading-7">
-            Custom tools beyond the standard stack are quoted separately. I don&apos;t include IDX or MLS listing
-            feeds.
+            A tool past the usual site is priced on its own before I start. Listing search (IDX) is licensed
+            through your own MLS and broker, so it isn&apos;t included in the build.
           </p>
         </div>
       </section>

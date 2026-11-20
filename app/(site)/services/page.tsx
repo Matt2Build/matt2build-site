@@ -22,7 +22,7 @@ export default function ServicesPage() {
           <p className="text-lg text-gray-300 leading-8">
             I build custom websites, and tools when you need them, for real estate agents anywhere in the United
             States. The {BUILD_PRICE} build is a custom design on the standard stack, launched on a domain in your
-            name.{' '}
+            own account.{' '}
             <Link href="/demo" className="text-matrix-400 hover:underline">
               See a live demo
             </Link>{' '}
@@ -54,18 +54,22 @@ export default function ServicesPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-6 md:grid-cols-2">
           <div className="p-8 rounded-xl border border-cyber-light">
             <h2 id="not-included" className="text-2xl font-bold text-white mb-3">
-              Not included: IDX or listing feeds
+              Not included: listing search
             </h2>
             <p className="text-gray-300 leading-7">
-              I don&apos;t set up IDX or MLS listing feeds. MLS rules don&apos;t allow me to pipe listing data onto
-              a marketing site. I build the marketing site and the tools you own.
+              Listing search (IDX) is licensed through your own MLS and broker, so it isn&apos;t included in the
+              build.
             </p>
           </div>
           <div className="p-8 rounded-xl border border-cyber-light">
             <h2 className="text-2xl font-bold text-white mb-3">You own it</h2>
             <p className="text-gray-300 leading-7">
-              You own your domain. I can register it, connect it, and manage DNS, email records, and renewals. It
-              stays in your name if you change brokerages.
+              You own your domain. I register it in your own registrar account, or I transfer it to you. I can
+              connect it and manage DNS, email records, and renewals. It stays yours if you{' '}
+              <Link href="/brokerage-switch" className="text-matrix-400 hover:underline">
+                change brokerages
+              </Link>
+              .
             </p>
           </div>
         </div>
@@ -76,8 +80,8 @@ export default function ServicesPage() {
           <h2 className="text-2xl font-bold text-white mb-3">Beyond the stack</h2>
           <p className="text-gray-300 leading-7 mb-4">
             The {BUILD_PRICE} build is the custom site. Want it handled? {MONTHLY_PRICE}/month covers hosting,
-            maintenance, domain management and back-end support. Month to month, cancel anytime. A calculator, a
-            dashboard, or another tool past that stack is quoted separately before I start.
+            maintenance, domain management and back-end support. Month to month. Cancel anytime. No cancellation
+            fee. A calculator, a dashboard, or another tool past that is priced on its own before I start.
           </p>
         </div>
       </section>

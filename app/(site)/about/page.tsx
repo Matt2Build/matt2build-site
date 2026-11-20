@@ -34,18 +34,21 @@ export default function AboutPage() {
             <div className="space-y-5 text-lg text-gray-300 leading-8">
               <p>I build websites and tools for real estate agents anywhere in the United States.</p>
               <p>
-                The products are the proof. WorkflowRealtor is a brokerage-independent dashboard for pipeline,
+                Here&apos;s some of what I&apos;ve built. WorkflowRealtor is a dashboard for an agent&apos;s pipeline,
                 clients, escrows, deadlines, net commission, documents, and calendar. MoverMath compares U.S.
                 states and counties for a move. WriteMyOffer is the buyer-offer site I built for my own real
-                estate business. I don&apos;t sell WriteMyOffer to other agents.
+                estate business.
               </p>
               <p>
                 Moving2PNW is a public market site I run. GridView Pro is a Mac app for working in several panes
                 at once.
               </p>
               <p>
-                If you want a site that is yours — your domain, your name, still yours if you change brokerages —
-                that is the work I do.
+                If you want a site that is yours, with the domain in your own account, and it stays yours if you{' '}
+                <Link href="/brokerage-switch" className="text-matrix-400 hover:underline">
+                  change brokerages
+                </Link>
+                , that is the work I do.
               </p>
             </div>
             <p className="mt-8 text-gray-300">

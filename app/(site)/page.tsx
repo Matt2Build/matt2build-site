@@ -12,7 +12,7 @@ export const metadata = pageMetadata({ title, description, path: '/', absolute: 
 
 const benefits = [
   { title: 'Custom design', line: 'Designed around you and your market.' },
-  { title: 'You own the domain', line: 'I can register and manage it in your name.' },
+  { title: 'You own the domain', line: 'I register it in your own account, or transfer it to you.' },
   { title: 'Built by an agent', line: 'Selling homes since 2014, and I build the tools.' },
   { title: 'Anywhere in the U.S.', line: 'I work with agents in any state.' },
 ]
@@ -83,7 +83,11 @@ export default function HomePage() {
             </h1>
             <p className="mt-5 text-base sm:text-lg text-gray-300 max-w-xl leading-relaxed">
               I build custom websites and tools for agents anywhere in the U.S. I&apos;m a licensed realtor since 2014,
-              and the site stays yours if you change brokerages.
+              and{' '}
+              <Link href="/brokerage-switch" className="text-matrix-400 hover:underline">
+                the site stays yours if you change brokerages
+              </Link>
+              .
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Link href="/contact" className="btn-primary">
@@ -230,7 +234,7 @@ export default function HomePage() {
               </h2>
               <p className="mt-3 text-gray-300">
                 Want it handled? {MONTHLY_PRICE}/month covers hosting, maintenance, domain management and back-end
-                support. Month to month, cancel anytime.
+                support. Month to month. Cancel anytime. No cancellation fee.
               </p>
               <p className="mt-3">
                 <Link href="/pricing#compare" className="text-matrix-400 hover:underline">
