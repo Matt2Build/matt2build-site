@@ -4,9 +4,9 @@ import { pageMetadata } from '@/lib/metadata'
 import { BUILD_PRICE, MONTHLY_PRICE } from '@/lib/site'
 import { webPageJsonLd } from '@/lib/structured-data'
 
-const title = 'Websites and Tools for Real Estate Agents'
+const title = 'Real Estate Agent Website Builder'
 const description =
-  'Custom websites and tools for real estate agents anywhere in the U.S., built by a working agent. $750 to build. $50 a month. You own the domain.'
+  'Custom real estate agent websites and tools from a licensed realtor. $750 to build, $50 a month. You keep the site.'
 
 export const metadata = pageMetadata({ title, description, path: '/', absolute: true })
 
@@ -46,7 +46,7 @@ const showcase = [
   },
   {
     title: 'WriteMyOffer',
-    line: 'My Washington buyer site. Not for sale.',
+    line: 'The buyer site I built for myself. Not for sale.',
     study: '/portfolio#writemyoffer',
     external: 'https://writemyoffer.com',
     linkLabel: 'writemyoffer.com',
@@ -69,8 +69,9 @@ export default function HomePage() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.05]">
               Websites and tools for real estate agents.
             </h1>
-            <p className="mt-5 text-lg sm:text-xl text-gray-300 max-w-xl leading-snug">
-              Built by a working agent. Custom. Yours if you change brokerages.
+            <p className="mt-5 text-base sm:text-lg text-gray-300 max-w-xl leading-relaxed">
+              I build custom websites and tools for agents anywhere in the U.S. I&apos;m a licensed realtor of 12
+              years, and the site stays yours if you change brokerages.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Link href="/contact" className="btn-primary">

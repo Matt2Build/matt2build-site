@@ -55,7 +55,7 @@ export function SiteFooter() {
         </div>
       </div>
       <p className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 text-sm text-gray-500">
-        © 2026 Matt2Build
+        © 2026 Matt2Build. Built by Matt Salit, a licensed realtor.
       </p>
     </footer>
   )

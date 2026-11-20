@@ -3,11 +3,11 @@ import { JsonLd } from '@/components/json-ld'
 import { Screenshot } from '@/components/screenshot'
 import { pageMetadata } from '@/lib/metadata'
 import { LINKEDIN_URL, projects, X_URL } from '@/lib/site'
-import { webPageJsonLd } from '@/lib/structured-data'
+import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
-const title = 'About Matt Salit'
+const title = 'Licensed Realtor Who Builds Sites'
 const description =
-  'Matt Salit has been a Snohomish County, Washington realtor and NWMLS member for 12 years. He builds custom websites and tools for agents anywhere in the U.S.'
+  'Matt Salit has been a licensed realtor since 2014 and builds custom websites and tools for real estate agents anywhere in the U.S.'
 
 export const metadata = pageMetadata({ title, description, path: '/about' })
 
@@ -15,6 +15,7 @@ export default function AboutPage() {
   return (
     <>
       <JsonLd data={webPageJsonLd({ title, description, path: '/about' })} />
+      <JsonLd data={breadcrumbJsonLd('/about', 'About')} />
       <section className="pt-32 pb-16 lg:pt-40">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-10 md:grid-cols-[280px_minmax(0,1fr)] items-start">
           <Screenshot
@@ -27,25 +28,20 @@ export default function AboutPage() {
           />
           <div>
             <p className="section-chip mb-6">About</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">I&apos;m Matt Salit.</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              I&apos;m Matt Salit, a licensed realtor since 2014.
+            </h1>
             <div className="space-y-5 text-lg text-gray-300 leading-8">
-              <p>
-                I&apos;ve sold homes in Snohomish County, Washington for 12 years, and I&apos;m a member of the
-                Northwest Multiple Listing Service. I also build the software.
-              </p>
-              <p>
-                Arlington and Snohomish are where I practice. They are the background, not the service area. I
-                build websites and tools for real estate agents anywhere in the United States.
-              </p>
+              <p>I build websites and tools for real estate agents anywhere in the United States.</p>
               <p>
                 The products are the proof. WorkflowRealtor is a brokerage-independent dashboard for pipeline,
                 clients, escrows, deadlines, net commission, documents, and calendar. MoverMath compares U.S.
-                states and counties for a move. WriteMyOffer is the buyer-offer site I built for my own Washington
-                business. I don&apos;t sell WriteMyOffer to other agents.
+                states and counties for a move. WriteMyOffer is the buyer-offer site I built for my own real
+                estate business. I don&apos;t sell WriteMyOffer to other agents.
               </p>
               <p>
-                Moving2PNW is a Washington market site I run. GridView Pro is a Mac app for working in several
-                panes at once.
+                Moving2PNW is a public market site I run. GridView Pro is a Mac app for working in several panes
+                at once.
               </p>
               <p>
                 If you want a site that is yours — your domain, your name, still yours if you change brokerages —

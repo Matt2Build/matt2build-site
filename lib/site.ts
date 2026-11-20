@@ -112,7 +112,7 @@ export const pricingFaqs: Faq[] = [
   {
     question: 'Do you work with agents anywhere in the U.S.?',
     answer:
-      "Yes. I work with real estate agents anywhere in the United States. I'm a Snohomish County, Washington realtor. That background is how I know the work. It isn't a limit on who I build for.",
+      "Yes. I build for real estate agents anywhere in the United States.",
   },
   {
     question: 'What if I want a tool beyond the standard stack?',
@@ -217,9 +217,9 @@ export const projects: Project[] = [
     id: 'writemyoffer',
     title: 'WriteMyOffer',
     kicker: 'My own buyer site',
-    summary: 'The buyer-offer site I built for my own real estate business in Washington.',
+    summary: 'The buyer-offer site I built for my own real estate business.',
     detail:
-      'I use WriteMyOffer with my own buyers in Washington. It is not for sale, and I do not offer it to other agents.',
+      'I use WriteMyOffer with my own buyers. It is not for sale, and I do not offer it to other agents.',
     href: 'https://writemyoffer.com',
     linkLabel: 'writemyoffer.com',
     shots: [
@@ -242,22 +242,22 @@ export const projects: Project[] = [
   {
     id: 'moving2pnw',
     title: 'Moving2PNW',
-    kicker: 'Washington markets',
-    summary: 'Washington housing and relocation data for people planning a move to the Pacific Northwest.',
+    kicker: 'Relocation data',
+    summary: 'A public site for comparing housing markets when you are planning a move.',
     detail:
-      'A public market site I run. The screenshots are the current Snohomish County snapshot and the relocation comparison.',
+      'A public market site I run. The screenshots show a market snapshot and a relocation comparison.',
     href: 'https://moving2pnw.com',
     linkLabel: 'moving2pnw.com',
     shots: [
       {
         src: '/moving2pnw-overview.webp',
-        alt: 'Moving2PNW Snohomish County market snapshot, with median price, days on market, and a buyers-versus-sellers chart.',
+        alt: 'Moving2PNW market snapshot with median price, days on market, and a buyers-versus-sellers chart.',
         width: 1200,
         height: 833,
       },
       {
         src: '/moving2pnw-migration.webp',
-        alt: 'Moving2PNW relocation view comparing monthly payments and median prices for Washington cities.',
+        alt: 'Moving2PNW relocation view comparing monthly payments and median prices across cities.',
         width: 1200,
         height: 833,
       },

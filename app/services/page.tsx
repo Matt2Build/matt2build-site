@@ -2,11 +2,11 @@ import Link from 'next/link'
 import { JsonLd } from '@/components/json-ld'
 import { pageMetadata } from '@/lib/metadata'
 import { BUILD_PRICE, MONTHLY_PRICE, standardStack } from '@/lib/site'
-import { webPageJsonLd } from '@/lib/structured-data'
+import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
-const title = 'Services for Real Estate Agents'
+const title = 'Custom Website for Realtors'
 const description =
-  'Custom real estate agent websites: design, a mobile-first layout, bio page, lead form, booking link, SEO, analytics, and launch. No IDX listing feeds. You own the domain.'
+  'A custom website for realtors: mobile-first design, bio page, contact form, booking link, SEO, and analytics. $750 to build, $50 a month. No listing feeds.'
 
 export const metadata = pageMetadata({ title, description, path: '/services' })
 
@@ -14,10 +14,11 @@ export default function ServicesPage() {
   return (
     <>
       <JsonLd data={webPageJsonLd({ title, description, path: '/services' })} />
+      <JsonLd data={breadcrumbJsonLd('/services', 'Services')} />
       <section className="pt-32 pb-8 lg:pt-40">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="section-chip mb-6">Services</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">What I build for agents.</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Custom websites for realtors.</h1>
           <p className="text-lg text-gray-300 leading-8">
             I build custom websites, and tools when you need them, for real estate agents anywhere in the United
             States. The {BUILD_PRICE} site is designed for you and includes the standard stack. It is not a
@@ -73,9 +74,6 @@ export default function ServicesPage() {
             The {BUILD_PRICE} build is the custom site. Hosting, maintenance, and support are {MONTHLY_PRICE} a
             month, month to month, cancel anytime. A calculator, a dashboard, or another tool past that stack is
             quoted separately before I start.
-          </p>
-          <p className="text-gray-300 leading-7">
-            Snohomish County is where I practice. It is not a limit on who I build for.
           </p>
         </div>
       </section>

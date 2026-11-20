@@ -8,18 +8,18 @@ import './globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL('https://matt2build.com'),
   title: {
-    default: 'Websites and Tools for Real Estate Agents',
+    default: 'Real Estate Agent Website Builder',
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    'Custom websites and tools for real estate agents anywhere in the U.S., built by a working agent. $750 to build. $50 a month. You own the domain.',
+    'Custom real estate agent websites and tools from a licensed realtor. $750 to build, $50 a month. You keep the site.',
   keywords: [
     'real estate agent website',
-    'custom realtor website',
-    'real estate agent web design',
-    'brokerage independent agent website',
+    'realtor website designer',
+    'custom website for realtors',
+    'real estate agent website builder',
+    'websites for realtors',
     'Matt2Build',
-    'Matt Salit',
   ],
   authors: [{ name: 'Matt Salit', url: 'https://matt2build.com' }],
   creator: 'Matt Salit',
@@ -33,30 +33,30 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Websites and Tools for Real Estate Agents | Matt2Build',
+    title: 'Real Estate Agent Website Builder | Matt2Build',
     description:
-      'Custom websites and tools for real estate agents anywhere in the U.S., built by a working agent.',
+      'Custom real estate agent websites and tools from a licensed realtor. $750 to build, $50 a month. You keep the site.',
     type: 'website',
     locale: 'en_US',
     url: 'https://matt2build.com',
     siteName: SITE_NAME,
     images: [
       {
-        url: '/og-image.png',
+        url: 'https://matt2build.com/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Matt2Build — websites and tools for real estate agents, built by a working agent.',
+        alt: 'Matt2Build — custom websites for real estate agents, built by a licensed realtor.',
         type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Websites and Tools for Real Estate Agents | Matt2Build',
+    title: 'Real Estate Agent Website Builder | Matt2Build',
     description:
-      'Custom websites and tools for real estate agents anywhere in the U.S., built by a working agent.',
+      'Custom real estate agent websites and tools from a licensed realtor. $750 to build, $50 a month. You keep the site.',
     creator: X_HANDLE,
-    images: ['/og-image.png'],
+    images: ['https://matt2build.com/og-image.png'],
   },
   icons: {
     apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],

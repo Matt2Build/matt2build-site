@@ -20,10 +20,10 @@ export function pageMetadata({
   const url = absoluteUrl(path)
   const fullTitle = `${title} | ${SITE_NAME}`
   const image = {
-    url: '/og-image.png',
+    url: `${SITE_URL}/og-image.png`,
     width: 1200,
     height: 630,
-    alt: 'Matt2Build — websites and tools for real estate agents, built by a working agent.',
+    alt: 'Matt2Build — custom websites for real estate agents, built by a licensed realtor.',
   }
 
   return {
@@ -44,7 +44,7 @@ export function pageMetadata({
       title: fullTitle,
       description,
       creator: X_HANDLE,
-      images: ['/og-image.png'],
+      images: [`${SITE_URL}/og-image.png`],
     },
   }
 }
