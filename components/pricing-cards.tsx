@@ -22,12 +22,14 @@ export function PricingCards() {
       </div>
 
       <div className="bg-gradient-to-b from-cyber-light/30 to-cyber-dark border border-cyber-light/50 rounded-xl p-8">
-        <div className="text-sm font-medium text-matrix-400 uppercase tracking-wide mb-2">Each month</div>
+        <div className="text-sm font-medium text-matrix-400 uppercase tracking-wide mb-2">Optional monthly</div>
         <div className="flex items-baseline gap-2 mb-4">
           <span className="text-5xl font-bold text-white">{MONTHLY_PRICE}</span>
           <span className="text-gray-400">/month</span>
         </div>
-        <p className="text-gray-300 mb-6">Hosting, maintenance, and support. Cancel anytime.</p>
+        <p className="text-gray-300 mb-6">
+          Want it handled? Hosting, maintenance, domain management, and back-end support. Cancel anytime.
+        </p>
         <ul className="space-y-3 text-sm">
           {monthlyIncludes.map((item) => (
             <li key={item} className="flex items-start gap-3">

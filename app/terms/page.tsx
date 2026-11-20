@@ -6,7 +6,7 @@ import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Terms of Service'
 const description =
-  'Terms for Matt2Build realtor websites: a $750 custom build and $50 a month for hosting, maintenance, and support.'
+  'Terms for Matt2Build realtor websites: a $750 custom build. Optional $50 a month for hosting, maintenance, and support.'
 
 export const metadata = pageMetadata({ title, description, path: '/terms' })
 
@@ -35,9 +35,9 @@ export default function TermsPage() {
             <h2 className="text-2xl font-semibold text-white mb-3">The work</h2>
             <p>
               I design and build custom websites and tools for real estate agents anywhere in the United States. A
-              standard site build is {BUILD_PRICE}, paid once. Hosting, maintenance, and support are {MONTHLY_PRICE}{' '}
-              a month, month to month. You can cancel anytime. Custom tools beyond the standard stack are quoted
-              separately before I start them.
+              standard site build is {BUILD_PRICE}, paid once. Want it handled? Hosting, maintenance, domain
+              management, and back-end support are {MONTHLY_PRICE} a month, month to month. You can cancel anytime.
+              Custom tools beyond the standard stack are quoted separately before I start them.
             </p>
             <p className="mt-4">
               The standard stack is a custom design, a mobile-first layout, a bio and about page, a contact and
@@ -56,9 +56,10 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-semibold text-white mb-3">Your domain and your site</h2>
             <p>
-              You own your domain. Register it in your name. The finished site stays with you if you change
-              brokerages. While the monthly plan is active, I host and maintain it. If you cancel, the site is
-              still yours, and I will give you the files you need to move it.
+              You own your domain. I can register it in your name, connect it, and manage DNS, email records, and
+              renewals. The finished site stays with you if you change brokerages. While the monthly plan is active,
+              I host and maintain it. If you cancel, the site is still yours, and I will give you the files you need
+              to move it.
             </p>
           </section>
 

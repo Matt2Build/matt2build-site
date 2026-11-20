@@ -7,7 +7,7 @@ import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Realtor Website Examples'
 const description =
-  'Realtor website examples from Matt Salit: WorkflowRealtor, MoverMath, WriteMyOffer, Moving2PNW, and GridView Pro. Custom work, not templates.'
+  'Realtor website examples from Matt Salit: WorkflowRealtor, MoverMath, WriteMyOffer, Moving2PNW, and GridView Pro. Custom work I designed and built.'
 
 export const metadata = pageMetadata({ title, description, path: '/portfolio' })
 
@@ -21,7 +21,7 @@ export default function PortfolioPage() {
           <p className="section-chip mb-6">Work</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Realtor websites and tools I built.</h1>
           <p className="text-lg text-gray-300 leading-8">
-            Real estate work comes first. These are products I made, not templates I resell. I work with agents
+            Real estate work comes first. Everything here is custom work I designed and built. I work with agents
             anywhere in the United States.
           </p>
         </div>
@@ -57,8 +57,8 @@ export default function PortfolioPage() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Want something of your own?</h2>
           <p className="text-gray-400 text-lg mb-8">
-            Tell me the market and what you want the site to do. The standard site is {BUILD_PRICE} to build and{' '}
-            {MONTHLY_PRICE} a month after that.
+            Tell me the market and what you want the site to do. {BUILD_PRICE} to build. Optional {MONTHLY_PRICE} a
+            month if you want hosting, maintenance, domain management and back-end support handled.
           </p>
           <Link href="/contact" className="btn-primary inline-block">
             Start a project

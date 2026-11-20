@@ -6,7 +6,7 @@ import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Realtor Website Designer'
 const description =
-  'Contact a realtor website designer about a custom real estate agent website. $750 to build, $50 a month. Email matt2build@gmail.com.'
+  'Contact a realtor website designer about a custom real estate agent website. $750 to build. Optional $50 a month.'
 
 export const metadata = pageMetadata({ title, description, path: '/contact' })
 

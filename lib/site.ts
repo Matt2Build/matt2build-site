@@ -28,9 +28,9 @@ export type StackItem = {
 export const standardStack: StackItem[] = [
   {
     title: 'Custom design',
-    summary: 'Designed for you. Not a template with your name dropped in.',
+    summary: 'Designed around your name, your market, and how you work.',
     detail:
-      'I design the site around your name, your market, and how you actually work. It will not look like a theme with the logo swapped.',
+      'I design the site around your name, your market, and how you actually work.',
   },
   {
     title: 'Mobile-first layout',
@@ -48,13 +48,13 @@ export const standardStack: StackItem[] = [
     title: 'Contact and lead form',
     summary: 'A form that sends a new inquiry straight to you.',
     detail:
-      'Name, email, and what they need. The message comes to you. You are not waiting on a portal you do not control.',
+      'Name, email, and what they need. Inquiries land straight in your inbox.',
   },
   {
     title: 'Consultation booking link',
     summary: 'A clear link so someone can book time with you.',
     detail:
-      'I put your booking link where people can find it. I am not selling a separate scheduling product. It is your link, on your site.',
+      'I put your booking link on the site so people can book time with you.',
   },
   {
     title: 'SEO setup and structured data',
@@ -66,7 +66,7 @@ export const standardStack: StackItem[] = [
     title: 'Analytics',
     summary: 'A simple count of visits, so you can see what gets used.',
     detail:
-      'You can see which pages people open. I keep it simple. I am not installing a pile of ad trackers.',
+      'A simple count of visits, so you can see which pages people open.',
   },
   {
     title: 'Launch',
@@ -74,9 +74,21 @@ export const standardStack: StackItem[] = [
     detail:
       'When the site is ready, I launch it on the domain you own and walk through it with you before you share the link.',
   },
+  {
+    title: 'Launch on your domain',
+    summary: 'The site goes live on a domain in your name.',
+    detail:
+      'I launch the site on a domain in your name. I can register it, connect it, and manage DNS, email records, and renewals. Registration and renewal fees stay with you. The domain stays in your name.',
+  },
 ]
 
-export const monthlyIncludes = ['Hosting', 'Maintenance', 'Support', 'Month-to-month, cancel anytime']
+export const monthlyIncludes = [
+  'Hosting',
+  'Maintenance',
+  'Domain management',
+  'Back-end support',
+  'Month to month, cancel anytime',
+]
 
 export type Faq = {
   question: string
@@ -97,8 +109,9 @@ export const pricingFaqs: Faq[] = [
     answer: 'I can rebuild it, migrate it, or improve what you have.',
   },
   {
-    question: "What's included in the monthly retainer?",
-    answer: 'Hosting, backups, security, content updates, edits, and priority support.',
+    question: "What's included in the monthly plan?",
+    answer:
+      'Hosting, maintenance, domain management, and back-end support. It is optional, month to month, and you can cancel anytime.',
   },
   {
     question: 'Is there a contract?',
@@ -120,7 +133,18 @@ export const pricingFaqs: Faq[] = [
   },
   {
     question: 'Who owns the domain and the site?',
-    answer: 'You do. You own your domain, and the site stays with you if you change brokerages.',
+    answer:
+      'You do. I can register, connect, and manage the domain, and it stays in your name if you change brokerages.',
+  },
+  {
+    question: 'Do I have to pay monthly?',
+    answer:
+      'No. The $50 a month is optional, for agents who want me to handle hosting, maintenance, domain management and back-end support.',
+  },
+  {
+    question: 'Can you handle the domain?',
+    answer:
+      'Yes. I can register it, connect it, and manage DNS, email records, and renewals. The domain stays in your name.',
   },
 ]
 
@@ -129,7 +153,7 @@ export const homeFaqs: Faq[] = [
   pricingFaqs[5],
   {
     question: 'What does a site cost?',
-    answer: `${BUILD_PRICE} once to build it. ${MONTHLY_PRICE} a month after that for hosting, maintenance, and support. Month-to-month. Cancel anytime. Custom tools beyond the standard stack are quoted separately.`,
+    answer: `${BUILD_PRICE} once for the custom build. ${MONTHLY_PRICE} a month is optional, for hosting, maintenance, domain management, and back-end support. Cancel anytime. Custom tools beyond the standard stack are quoted separately.`,
   },
   pricingFaqs[8],
   pricingFaqs[4],
@@ -163,7 +187,7 @@ export const projects: Project[] = [
     summary:
       "A brokerage-independent dashboard for an agent's pipeline, clients, escrows, deadlines, net commission, documents, and calendar.",
     detail:
-      'I built this so an agent can run the day-to-day of the business in one place, and keep that workspace if they change brokerages. It is not public yet. These are screenshots only.',
+      'I built this so an agent can run the day-to-day of the business in one place, and keep that workspace if they change brokerages. These are screenshots only.',
     shots: [
       {
         src: '/workflowrealtor-home-desktop.webp',
@@ -219,7 +243,7 @@ export const projects: Project[] = [
     kicker: 'My own buyer site',
     summary: 'The buyer-offer site I built for my own real estate business.',
     detail:
-      'I use WriteMyOffer with my own buyers. It is not for sale, and I do not offer it to other agents.',
+      'I use WriteMyOffer with my own buyers.',
     href: 'https://writemyoffer.com',
     linkLabel: 'writemyoffer.com',
     shots: [
@@ -269,7 +293,7 @@ export const projects: Project[] = [
     title: 'GridView Pro',
     kicker: 'Mac app',
     summary: 'A Mac app for working across several panes at once.',
-    detail: 'GridView Pro is desktop software, not an agent website. I keep it here because I built it.',
+    detail: 'A Mac app I built for working across several panes at once.',
     href: 'https://gridviewpro.com',
     linkLabel: 'gridviewpro.com',
     shots: [

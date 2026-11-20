@@ -71,9 +71,10 @@ export const siteGraph = {
         },
         {
           '@type': 'Offer',
-          name: 'Hosting, maintenance, and support',
+          name: 'Optional hosting, maintenance, domain management, and back-end support',
           url: `${SITE_URL}/pricing`,
-          description: 'Monthly hosting, maintenance, and support. Month-to-month. Cancel anytime.',
+          description:
+            'Optional monthly plan. Month-to-month. Cancel anytime.',
           priceSpecification: {
             '@type': 'UnitPriceSpecification',
             price: MONTHLY_PRICE_AMOUNT,
@@ -104,11 +105,11 @@ export const siteGraph = {
         },
         {
           '@type': 'Offer',
-          name: 'Hosting, maintenance, and support',
+          name: 'Optional hosting, maintenance, domain management, and back-end support',
           price: MONTHLY_PRICE_AMOUNT,
           priceCurrency: 'USD',
           url: `${SITE_URL}/pricing`,
-          description: 'Monthly hosting, maintenance, and support. Month-to-month. Cancel anytime.',
+          description: 'Optional monthly plan. Month-to-month. Cancel anytime.',
           priceSpecification: {
             '@type': 'UnitPriceSpecification',
             price: MONTHLY_PRICE_AMOUNT,

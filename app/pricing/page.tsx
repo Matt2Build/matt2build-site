@@ -8,7 +8,7 @@ import { breadcrumbJsonLd, faqJsonLd, webPageJsonLd } from '@/lib/structured-dat
 
 const title = 'Real Estate Agent Website Pricing'
 const description =
-  'Real estate agent website pricing: $750 to build and $50 a month for hosting, maintenance, and support. Month-to-month. You keep the site.'
+  'Real estate agent website pricing: $750 to build. Optional $50 a month for hosting, maintenance, domain management, and support.'
 
 export const metadata = pageMetadata({ title, description, path: '/pricing' })
 
@@ -25,12 +25,10 @@ export default function PricingPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Real estate agent website pricing
           </h1>
-          <p className="text-3xl md:text-4xl font-bold text-white mb-4">
-            {BUILD_PRICE} to build. {MONTHLY_PRICE} a month.
-          </p>
+          <p className="text-3xl md:text-4xl font-bold text-white mb-4">{BUILD_PRICE} to build.</p>
           <p className="text-lg text-gray-300 leading-8">
-            One price for a custom agent website on the standard stack. Hosting, maintenance, and support after
-            that. Month to month. I work with agents anywhere in the United States.
+            Want it handled? {MONTHLY_PRICE}/month covers hosting, maintenance, domain management and back-end
+            support. Month to month, cancel anytime. I build for agents anywhere in the United States.
           </p>
         </div>
       </section>
