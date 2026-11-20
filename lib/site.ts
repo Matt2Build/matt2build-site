@@ -5,7 +5,7 @@ export const BUILD_PRICE = '$750'
 export const MONTHLY_PRICE = '$50'
 export const BUILD_PRICE_AMOUNT = '750'
 export const MONTHLY_PRICE_AMOUNT = '50'
-export const POLICY_UPDATED = 'November 20, 2026'
+export const POLICY_UPDATED = 'November 19, 2026'
 
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/matt-salit-8108003ba/'
 export const X_URL = 'https://x.com/soldwithsalit'
