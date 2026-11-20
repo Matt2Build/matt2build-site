@@ -2,11 +2,11 @@ import Link from 'next/link'
 import { JsonLd } from '@/components/json-ld'
 import { pageMetadata } from '@/lib/metadata'
 import { BUILD_PRICE, CONTACT_EMAIL, MONTHLY_PRICE, POLICY_UPDATED } from '@/lib/site'
-import { webPageJsonLd } from '@/lib/structured-data'
+import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Terms of Service'
 const description =
-  'Terms for Matt2Build websites and tools for real estate agents, including the $750 build and $50 monthly hosting, maintenance, and support.'
+  'Terms for Matt2Build realtor websites: a $750 custom build and $50 a month for hosting, maintenance, and support.'
 
 export const metadata = pageMetadata({ title, description, path: '/terms' })
 
@@ -14,6 +14,7 @@ export default function TermsPage() {
   return (
     <>
       <JsonLd data={webPageJsonLd({ title, description, path: '/terms' })} />
+      <JsonLd data={breadcrumbJsonLd('/terms', 'Terms')} />
       <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 lg:pt-40">
         <p className="section-chip mb-6">Matt2Build</p>
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">Terms of Service</h1>

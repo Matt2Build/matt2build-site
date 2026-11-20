@@ -2,11 +2,11 @@ import Link from 'next/link'
 import { JsonLd } from '@/components/json-ld'
 import { pageMetadata } from '@/lib/metadata'
 import { CONTACT_EMAIL, POLICY_UPDATED } from '@/lib/site'
-import { webPageJsonLd } from '@/lib/structured-data'
+import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Privacy Policy'
 const description =
-  'How Matt2Build handles the name, email, market, and message you send through the contact form on this marketing site.'
+  'Privacy policy for Matt2Build, a realtor website studio. How the contact form handles your name, email, market, and message.'
 
 export const metadata = pageMetadata({ title, description, path: '/privacy' })
 
@@ -14,6 +14,7 @@ export default function PrivacyPage() {
   return (
     <>
       <JsonLd data={webPageJsonLd({ title, description, path: '/privacy' })} />
+      <JsonLd data={breadcrumbJsonLd('/privacy', 'Privacy')} />
       <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 lg:pt-40">
         <p className="section-chip mb-6">Matt2Build</p>
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">Privacy Policy</h1>

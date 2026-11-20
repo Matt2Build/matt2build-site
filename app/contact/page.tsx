@@ -2,11 +2,11 @@ import { ContactForm } from '@/components/contact-form'
 import { JsonLd } from '@/components/json-ld'
 import { pageMetadata } from '@/lib/metadata'
 import { CONTACT_EMAIL } from '@/lib/site'
-import { webPageJsonLd } from '@/lib/structured-data'
+import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
-const title = 'Contact Matt Salit'
+const title = 'Realtor Website Designer'
 const description =
-  'Tell Matt Salit what you want built. He works with real estate agents anywhere in the United States. Email matt2build@gmail.com.'
+  'Contact a realtor website designer about a custom real estate agent website. $750 to build, $50 a month. Email matt2build@gmail.com.'
 
 export const metadata = pageMetadata({ title, description, path: '/contact' })
 
@@ -14,10 +14,11 @@ export default function ContactPage() {
   return (
     <>
       <JsonLd data={webPageJsonLd({ title, description, path: '/contact' })} />
+      <JsonLd data={breadcrumbJsonLd('/contact', 'Contact')} />
       <section className="pt-32 pb-20 lg:pt-40">
         <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="section-chip mb-6">Contact</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Tell me what you need.</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Tell me about your realtor website.</h1>
           <p className="text-lg text-gray-300 leading-8 mb-8">
             Name, email, your market and brokerage, and what you want built. I work with agents anywhere in the
             United States, and I reply within one business day.

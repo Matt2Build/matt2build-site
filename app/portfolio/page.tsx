@@ -3,11 +3,11 @@ import { JsonLd } from '@/components/json-ld'
 import { ProjectArticle } from '@/components/project-article'
 import { pageMetadata } from '@/lib/metadata'
 import { BUILD_PRICE, featuredProjects, MONTHLY_PRICE, otherProjects } from '@/lib/site'
-import { webPageJsonLd } from '@/lib/structured-data'
+import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
-const title = 'Work for Real Estate Agents'
+const title = 'Realtor Website Examples'
 const description =
-  'Case studies from Matt Salit: WorkflowRealtor, MoverMath, WriteMyOffer, Moving2PNW, and GridView Pro. Custom work for real estate agents, not templates.'
+  'Realtor website examples from Matt Salit: WorkflowRealtor, MoverMath, WriteMyOffer, Moving2PNW, and GridView Pro. Custom work, not templates.'
 
 export const metadata = pageMetadata({ title, description, path: '/portfolio' })
 
@@ -15,10 +15,11 @@ export default function PortfolioPage() {
   return (
     <>
       <JsonLd data={webPageJsonLd({ title, description, path: '/portfolio' })} />
+      <JsonLd data={breadcrumbJsonLd('/portfolio', 'Work')} />
       <section className="pt-32 pb-8 lg:pt-40">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="section-chip mb-6">Work</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Sites and tools I built.</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Realtor websites and tools I built.</h1>
           <p className="text-lg text-gray-300 leading-8">
             Real estate work comes first. These are products I made, not templates I resell. I work with agents
             anywhere in the United States.

@@ -10,7 +10,8 @@ import {
 } from './site'
 import { absoluteUrl } from './metadata'
 
-const sameAs = [LINKEDIN_URL, X_URL]
+const organizationSameAs = [LINKEDIN_URL, X_URL]
+const personSameAs = [X_URL]
 
 export const siteGraph = {
   '@context': 'https://schema.org',
@@ -32,7 +33,7 @@ export const siteGraph = {
       logo: `${SITE_URL}/apple-touch-icon.png`,
       image: `${SITE_URL}/og-image.png`,
       founder: { '@id': `${SITE_URL}/#matt-salit` },
-      sameAs,
+      sameAs: organizationSameAs,
     },
     {
       '@type': 'Person',
@@ -40,8 +41,8 @@ export const siteGraph = {
       name: 'Matt Salit',
       url: `${SITE_URL}/about`,
       image: `${SITE_URL}/matt-salit.webp`,
-      jobTitle: 'Real estate agent and web developer',
-      sameAs,
+      jobTitle: 'Licensed Realtor and Web Developer',
+      sameAs: personSameAs,
     },
     {
       '@type': 'ProfessionalService',
@@ -51,7 +52,7 @@ export const siteGraph = {
       email: CONTACT_EMAIL,
       image: `${SITE_URL}/og-image.png`,
       description:
-        'Custom websites and tools for real estate agents anywhere in the United States, built by a working agent.',
+        'Custom websites and tools for real estate agents anywhere in the United States, built by a licensed realtor.',
       areaServed: {
         '@type': 'Country',
         name: 'United States',
@@ -71,6 +72,41 @@ export const siteGraph = {
         {
           '@type': 'Offer',
           name: 'Hosting, maintenance, and support',
+          url: `${SITE_URL}/pricing`,
+          description: 'Monthly hosting, maintenance, and support. Month-to-month. Cancel anytime.',
+          priceSpecification: {
+            '@type': 'UnitPriceSpecification',
+            price: MONTHLY_PRICE_AMOUNT,
+            priceCurrency: 'USD',
+            unitText: 'MONTH',
+          },
+        },
+      ],
+    },
+    {
+      '@type': 'Service',
+      '@id': `${SITE_URL}/#website-build`,
+      name: 'Custom real estate agent website',
+      serviceType: 'Real estate agent website design',
+      provider: { '@id': `${SITE_URL}/#organization` },
+      areaServed: {
+        '@type': 'Country',
+        name: 'United States',
+      },
+      offers: [
+        {
+          '@type': 'Offer',
+          name: 'Custom real estate agent website',
+          price: BUILD_PRICE_AMOUNT,
+          priceCurrency: 'USD',
+          url: `${SITE_URL}/pricing`,
+          description: 'One-time custom website build for a real estate agent.',
+        },
+        {
+          '@type': 'Offer',
+          name: 'Hosting, maintenance, and support',
+          price: MONTHLY_PRICE_AMOUNT,
+          priceCurrency: 'USD',
           url: `${SITE_URL}/pricing`,
           description: 'Monthly hosting, maintenance, and support. Month-to-month. Cancel anytime.',
           priceSpecification: {
@@ -104,6 +140,28 @@ export function webPageJsonLd({
     description,
     isPartOf: { '@id': `${SITE_URL}/#website` },
     about: { '@id': `${SITE_URL}/#organization` },
+  }
+}
+
+export function breadcrumbJsonLd(path: string, name: string) {
+  const url = absoluteUrl(path)
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: SITE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name,
+        item: url,
+      },
+    ],
   }
 }
 
