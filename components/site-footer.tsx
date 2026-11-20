@@ -28,6 +28,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link className="text-gray-200 hover:text-matrix-400" href="/brokerage-switch">
+                Switching brokerages
+              </Link>
+            </li>
+            <li>
               <Link className="text-gray-200 hover:text-matrix-400" href="/privacy">
                 Privacy
               </Link>

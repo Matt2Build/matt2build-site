@@ -28,7 +28,8 @@ export function PricingCards() {
           <span className="text-gray-400">/month</span>
         </div>
         <p className="text-gray-300 mb-6">
-          Want it handled? Hosting, maintenance, domain management, and back-end support. Cancel anytime.
+          Want it handled? Hosting, maintenance, domain management, and back-end support. Month to month.
+          Cancel anytime. No cancellation fee.
         </p>
         <ul className="space-y-3 text-sm">
           {monthlyIncludes.map((item) => (

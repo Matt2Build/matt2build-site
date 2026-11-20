@@ -1,6 +1,7 @@
 'use client'
 
 import { FormEvent, useState } from 'react'
+import { captureEvent } from '@/lib/analytics'
 
 type SubmitState = 'idle' | 'sending' | 'success' | 'error'
 
@@ -39,6 +40,7 @@ export function ContactForm() {
       setMessage('')
       setFaxNumber('')
       setSubmitState('success')
+      captureEvent('contact_form_submitted', { location: 'contact_form' })
     } catch {
       setSubmitState('error')
     }

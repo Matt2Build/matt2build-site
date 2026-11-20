@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { AnalyticsProvider } from '@/components/analytics-provider'
 import { SITE_NAME, X_HANDLE } from '@/lib/site'
 import './globals.css'
 
@@ -67,8 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="font-sans bg-cyber-dark text-gray-100">
-        <script async defer data-domain="matt2build.com" src="https://plausible.io/js/plausible.js"></script>
-        {children}
+        <AnalyticsProvider>{children}</AnalyticsProvider>
       </body>
     </html>
   )

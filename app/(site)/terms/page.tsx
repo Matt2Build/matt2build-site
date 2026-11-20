@@ -36,8 +36,8 @@ export default function TermsPage() {
             <p>
               I design and build custom websites and tools for real estate agents anywhere in the United States. A
               standard site build is {BUILD_PRICE}, paid once. Want it handled? Hosting, maintenance, domain
-              management, and back-end support are {MONTHLY_PRICE} a month, month to month. You can cancel anytime.
-              Custom tools beyond the standard stack are quoted separately before I start them.
+              management, and back-end support are {MONTHLY_PRICE} a month. It&apos;s month to month. Cancel anytime.
+              No contract and no cancellation fee. A tool past the usual site is priced on its own before I start.
             </p>
             <p className="mt-4">
               The standard stack is a custom design, a mobile-first layout, a bio and about page, a contact and
@@ -48,18 +48,26 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-semibold text-white mb-3">What I don&apos;t include</h2>
             <p>
-              I do not include IDX or MLS listing feeds. MLS rules don&apos;t allow that on these sites. I build
-              the marketing site and the tools you own.
+              Listing search (IDX) is licensed through your own MLS and broker, so it isn&apos;t included in the
+              build.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-semibold text-white mb-3">Your domain and your site</h2>
             <p>
-              You own your domain. I can register it in your name, connect it, and manage DNS, email records, and
-              renewals. The finished site stays with you if you change brokerages. While the monthly plan is active,
-              I host and maintain it. If you cancel, the site is still yours, and I will give you the files you need
-              to move it.
+              You own your domain. I register it in your own registrar account, or I transfer it to you. I can
+              connect it and manage DNS, email records, and renewals. The registrar bill stays with you. The site
+              stays yours if you change brokerages.
+            </p>
+            <p className="mt-4">
+              Cancel anytime. No contract and no cancellation fee. I&apos;ll hand over your domain, the site&apos;s
+              code and files, and your images and content, so you can host it anywhere. Stock images transfer only
+              within their license. I&apos;ll also give you an analytics export.
+            </p>
+            <p className="mt-4">
+              What doesn&apos;t transfer: my hosting account, my shared email-sending setup, and ongoing support.
+              Form messages already go to your own email.
             </p>
           </section>
 

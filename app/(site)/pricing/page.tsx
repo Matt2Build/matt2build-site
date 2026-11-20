@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { TrackedLink } from '@/components/tracked-link'
 import { FaqList } from '@/components/faq-list'
 import { JsonLd } from '@/components/json-ld'
 import { ComparisonTable } from '@/components/comparison-table'
@@ -29,7 +29,8 @@ export default function PricingPage() {
           <p className="text-3xl md:text-4xl font-bold text-white mb-4">{BUILD_PRICE} to build.</p>
           <p className="text-lg text-gray-300 leading-8">
             Want it handled? {MONTHLY_PRICE}/month covers hosting, maintenance, domain management and back-end
-            support. Month to month, cancel anytime. I build for agents anywhere in the United States.
+            support. Month to month. Cancel anytime. No cancellation fee. I build for agents anywhere in the
+            United States.
           </p>
         </div>
       </section>
@@ -41,8 +42,8 @@ export default function PricingPage() {
           </h2>
           <PricingCards />
           <p className="text-gray-400 text-center mt-8 leading-7">
-            Custom tools beyond the standard stack are quoted separately. I don&apos;t include IDX or MLS listing
-            feeds.
+            A tool past the usual site is priced on its own before I start. Listing search (IDX) is licensed
+            through your own MLS and broker, so it isn&apos;t included in the build.
           </p>
         </div>
       </section>
@@ -68,9 +69,9 @@ export default function PricingPage() {
       <section className="py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Ready when you are.</h2>
-          <Link href="/contact" className="btn-primary inline-block">
+          <TrackedLink href="/contact" className="btn-primary inline-block" event="start_project_clicked" properties={{ location: 'pricing' }}>
             Start a project
-          </Link>
+          </TrackedLink>
         </div>
       </section>
     </>

@@ -1,6 +1,7 @@
 'use client'
 
 import { FormEvent, useState } from 'react'
+import { captureEvent } from '@/lib/analytics'
 
 type SubmitState = 'idle' | 'sending' | 'success' | 'error'
 
@@ -47,6 +48,7 @@ export function TeardownForm() {
       setGoals('')
       setFaxNumber('')
       setSubmitState('success')
+      captureEvent('teardown_requested', { location: 'teardown_form' })
     } catch {
       setErrorMessage('Something went wrong.')
       setSubmitState('error')

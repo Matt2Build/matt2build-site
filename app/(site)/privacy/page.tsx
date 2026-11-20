@@ -66,8 +66,9 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-2xl font-semibold text-white mb-3">Analytics</h2>
             <p>
-              I use Plausible Analytics to count page views on this site. Plausible does not use cookies and does
-              not give me a way to identify you.
+              I use PostHog to see which pages people open and what they click, including on the sample agent
+              site. It does this without cookies. I don&apos;t use it for ads, and I don&apos;t sell this
+              information.
             </p>
           </section>
 
