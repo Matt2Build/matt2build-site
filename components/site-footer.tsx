@@ -23,6 +23,11 @@ export function SiteFooter() {
               </a>
             </li>
             <li>
+              <Link className="text-gray-200 hover:text-matrix-400" href="/teardown">
+                Site teardown
+              </Link>
+            </li>
+            <li>
               <Link className="text-gray-200 hover:text-matrix-400" href="/privacy">
                 Privacy
               </Link>

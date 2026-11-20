@@ -22,7 +22,11 @@ export default function ServicesPage() {
           <p className="text-lg text-gray-300 leading-8">
             I build custom websites, and tools when you need them, for real estate agents anywhere in the United
             States. The {BUILD_PRICE} build is a custom design on the standard stack, launched on a domain in your
-            name.
+            name.{' '}
+            <Link href="/demo" className="text-matrix-400 hover:underline">
+              See a live demo
+            </Link>{' '}
+            of that kind of site.
           </p>
         </div>
       </section>

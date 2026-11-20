@@ -616,6 +616,19 @@ textarea:focus-visible {
   outline-offset: 3px;
 }
 
+body:has(.demo-site) {
+  background: #f4efe6;
+  color: #1f1a14;
+}
+
+body:has(.demo-site)::before {
+  display: none;
+}
+
+.demo-site :is(a, button, summary, input, textarea, select):focus-visible {
+  outline-color: #1f3a32;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

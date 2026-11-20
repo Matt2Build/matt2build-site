@@ -69,16 +69,10 @@ export const standardStack: StackItem[] = [
       'A simple count of visits, so you can see which pages people open.',
   },
   {
-    title: 'Launch',
-    summary: 'I put the site on your domain and check it before you send anyone there.',
-    detail:
-      'When the site is ready, I launch it on the domain you own and walk through it with you before you share the link.',
-  },
-  {
     title: 'Launch on your domain',
     summary: 'The site goes live on a domain in your name.',
     detail:
-      'I launch the site on a domain in your name. I can register it, connect it, and manage DNS, email records, and renewals. Registration and renewal fees stay with you. The domain stays in your name.',
+      'When the site is ready, I launch it on the domain you own and walk through it with you. I can register it, connect it, and manage DNS, email records, and renewals. Registration and renewal fees stay with you. The domain stays in your name.',
   },
 ]
 

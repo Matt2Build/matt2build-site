@@ -77,8 +77,8 @@ export default function HomePage() {
               <Link href="/contact" className="btn-primary">
                 Start a project
               </Link>
-              <Link href="/portfolio" className="btn-secondary">
-                See the work
+              <Link href="/demo" className="btn-secondary">
+                See a live demo
               </Link>
             </div>
           </div>
@@ -214,6 +214,11 @@ export default function HomePage() {
                 Want it handled? {MONTHLY_PRICE}/month covers hosting, maintenance, domain management and back-end
                 support. Month to month, cancel anytime.
               </p>
+              <p className="mt-3">
+                <Link href="/pricing#compare" className="text-matrix-400 hover:underline">
+                  See how it compares
+                </Link>
+              </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/pricing" className="btn-primary">
@@ -232,6 +237,12 @@ export default function HomePage() {
           <div className="rounded-3xl border border-white/10 px-6 py-12 sm:px-12 text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-white">Tell me what you want built.</h2>
             <p className="mt-3 text-gray-400">Agents anywhere in the United States.</p>
+            <p className="mt-2 text-gray-400">
+              <Link href="/teardown" className="text-matrix-400 hover:underline">
+                Send your current site
+              </Link>{' '}
+              for a short written teardown.
+            </p>
             <Link href="/contact" className="btn-primary mt-8">
               Start a project
             </Link>
