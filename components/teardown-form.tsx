@@ -1,6 +1,7 @@
 'use client'
 
 import { FormEvent, useState } from 'react'
+import { TurnstileWidget, useFormShield } from '@/components/form-shield'
 import { captureEvent } from '@/lib/analytics'
 
 type SubmitState = 'idle' | 'sending' | 'success' | 'error'
@@ -13,6 +14,7 @@ export function TeardownForm() {
   const [goals, setGoals] = useState('')
   const [faxNumber, setFaxNumber] = useState('')
   const [submitState, setSubmitState] = useState<SubmitState>('idle')
+  const shield = useFormShield()
   const [errorMessage, setErrorMessage] = useState('')
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -31,6 +33,8 @@ export function TeardownForm() {
           market,
           goals,
           fax_number: faxNumber,
+          form_token: shield.formToken,
+          turnstile_token: shield.turnstileToken,
         }),
       })
 
@@ -163,9 +167,10 @@ export function TeardownForm() {
             </p>
           ) : null}
         </div>
+        <TurnstileWidget onToken={shield.setTurnstileToken} />
         <button
           type="submit"
-          disabled={submitState === 'sending'}
+          disabled={submitState === 'sending' || !shield.ready || (shield.turnstileRequired && !shield.turnstileToken)}
           aria-busy={submitState === 'sending'}
           className="w-full btn-primary cursor-pointer disabled:opacity-60 disabled:cursor-wait"
         >

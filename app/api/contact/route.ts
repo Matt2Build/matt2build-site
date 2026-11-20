@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
-import { escapeHtml, sanitizePlainText, sanitizeSingleLine } from '@/lib/email-sanitize'
-
-const EMAIL_PATTERN = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
+import { escapeHtml } from '@/lib/email-sanitize'
+import { decideContact } from '@/lib/form-guard'
 
 function getResend() {
   const apiKey = process.env.RESEND_API_KEY
@@ -19,27 +18,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid request' }, { status: 400 })
     }
 
-    const data = body as Record<string, unknown>
-
-    if (typeof data.fax_number === 'string' && data.fax_number.trim() !== '') {
-      return NextResponse.json({ success: true })
+    const decision = await decideContact(request, body as Record<string, unknown>)
+    if (!decision.ok) {
+      if (decision.silent) return NextResponse.json({ success: true })
+      return NextResponse.json({ error: decision.error }, { status: decision.status })
     }
 
-    const name = sanitizeSingleLine(data.name, 100)
-    const email = sanitizeSingleLine(data.email, 254)
-    const market = sanitizeSingleLine(data.market, 160)
-    const message = sanitizePlainText(data.message, 4000)
-
-    if (!name || !email || !market || !message) {
-      return NextResponse.json(
-        { error: 'Name, email, market, and message are required' },
-        { status: 400 },
-      )
-    }
-
-    if (!EMAIL_PATTERN.test(email)) {
-      return NextResponse.json({ error: 'Please provide a valid email address' }, { status: 400 })
-    }
+    const { name, email, market, message } = decision.fields
 
     const safeName = escapeHtml(name)
     const safeEmail = escapeHtml(email)

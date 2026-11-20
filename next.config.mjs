@@ -31,6 +31,9 @@ const nextConfig = {
     ]
   },
   headers() {
+    const turnstile = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY)
+    const challenge = turnstile ? ' https://challenges.cloudflare.com' : ''
+    const frameSrc = turnstile ? "; frame-src https://challenges.cloudflare.com" : ''
     return [
       {
         source: '/(.*)',
@@ -46,7 +49,7 @@ const nextConfig = {
           {
             key: 'Content-Security-Policy',
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self';",
+              `default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'${challenge}; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; font-src 'self' data:; connect-src 'self'${challenge}${frameSrc}; frame-ancestors 'none'; base-uri 'self';`,
           },
         ],
       },
