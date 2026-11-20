@@ -11,7 +11,7 @@ Everything stays cost effective without sacrificing feature or function. Backend
 - Vercel Pro is shared by all client projects. Do not open a new Vercel team or a new paid plan per client.
 - Each Vercel project gets a spend budget so one site cannot run the shared bill up.
 - One shared Supabase project is the only database, and only for clients who need a database. Never open a new $10/month Supabase project per client.
-- Each business gets its own email-sending account. Do not share one sending quota across businesses. This site and MoverMath currently share a Resend free quota of 100 emails a day. This site caps its own form mail at 40 a day so a flood here cannot use that whole quota. A new client business does not join that account.
+- Each business gets its own email-sending account. Do not share one sending quota across businesses. This site and MoverMath currently share a Resend free quota of 100 emails a day. This site's 40-a-day form cap is per server instance and best-effort. A durable cap needs the firewall rule or a separate Resend account. A new client business does not join that account.
 - PostHog is one shared project, filtered by domain. Do not open a new PostHog project per site.
 - AI features are capped. A feature that calls a paid model needs a hard usage cap before it ships, and it ships only when the retainer covers that cost.
 
@@ -24,7 +24,7 @@ Every form and public API on every client site gets this set. Skip one only when
 3. A minimum time to submit. The server signs a timestamp when the form loads. Reject anything faster than 3 seconds or older than 2 hours.
 4. Server-side validation and length caps. Reject the raw input when it is too long. Reject messages that are mostly links.
 5. A per-IP rate limit. Prefer Vercel Firewall `@vercel/firewall` `checkRateLimit` when a rule is published. If the rule is missing, the check times out, or it throws, fall back to an in-memory limiter. Never answer a real visitor with an error just because the rule is not configured yet.
-6. A hard daily cap on outbound email from that site, sized so it cannot exhaust the sending account. On this site the cap is 40 a day.
+6. A daily cap on outbound email. On this site the 40-a-day cap is per server instance and best-effort. A durable cap needs the firewall rule or a separate Resend account.
 7. Bot protection such as Cloudflare Turnstile, wired to environment variables and left off until both keys exist. The content security policy adds `https://challenges.cloudflare.com` only while the site key is set.
 8. Image optimization stays on. Use `next/image` with AVIF and WebP. Do not turn optimization off, and do not add remote image hosts without a size cap.
 
