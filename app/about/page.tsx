@@ -7,7 +7,7 @@ import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Licensed Realtor Who Builds Sites'
 const description =
-  'Matt Salit is a licensed realtor of 12 years, licensed since 2014, who builds custom websites and tools for real estate agents anywhere in the U.S.'
+  'Matt Salit has been a licensed realtor since 2014 and builds custom websites and tools for real estate agents anywhere in the U.S.'
 
 export const metadata = pageMetadata({ title, description, path: '/about' })
 
@@ -28,12 +28,11 @@ export default function AboutPage() {
           />
           <div>
             <p className="section-chip mb-6">About</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">I&apos;m Matt Salit, a licensed realtor.</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              I&apos;m Matt Salit, a licensed realtor since 2014.
+            </h1>
             <div className="space-y-5 text-lg text-gray-300 leading-8">
-              <p>
-                I&apos;ve been a licensed realtor since 2014, for 12 years, and I build websites and tools for real
-                estate agents anywhere in the United States.
-              </p>
+              <p>I build websites and tools for real estate agents anywhere in the United States.</p>
               <p>
                 The products are the proof. WorkflowRealtor is a brokerage-independent dashboard for pipeline,
                 clients, escrows, deadlines, net commission, documents, and calendar. MoverMath compares U.S.

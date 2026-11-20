@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     images: [
       {
-        url: '/og-image.png',
+        url: 'https://matt2build.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Matt2Build — custom websites for real estate agents, built by a licensed realtor.',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     description:
       'Custom real estate agent websites and tools from a licensed realtor. $750 to build, $50 a month. You keep the site.',
     creator: X_HANDLE,
-    images: ['/og-image.png'],
+    images: ['https://matt2build.com/og-image.png'],
   },
   icons: {
     apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],

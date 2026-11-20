@@ -112,7 +112,7 @@ export const pricingFaqs: Faq[] = [
   {
     question: 'Do you work with agents anywhere in the U.S.?',
     answer:
-      "Yes. I work with real estate agents anywhere in the United States. I'm a licensed realtor. That is my background, and it is not a limit on who I build for.",
+      "Yes. I build for real estate agents anywhere in the United States.",
   },
   {
     question: 'What if I want a tool beyond the standard stack?',
