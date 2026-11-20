@@ -57,8 +57,8 @@ export default function PortfolioPage() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Want something of your own?</h2>
           <p className="text-gray-400 text-lg mb-8">
-            Tell me the market and what you want the site to do. The standard site is {BUILD_PRICE} to build and{' '}
-            {MONTHLY_PRICE} a month after that.
+            Tell me the market and what you want the site to do. {BUILD_PRICE} to build. Optional {MONTHLY_PRICE} a
+            month if you want hosting, maintenance, domain management and back-end support handled.
           </p>
           <Link href="/contact" className="btn-primary inline-block">
             Start a project

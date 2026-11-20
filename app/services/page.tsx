@@ -21,7 +21,7 @@ export default function ServicesPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Custom websites for realtors.</h1>
           <p className="text-lg text-gray-300 leading-8">
             I build custom websites, and tools when you need them, for real estate agents anywhere in the United
-            States. The {BUILD_PRICE} build is a custom design on the standard stack, including the domain in your
+            States. The {BUILD_PRICE} build is a custom design on the standard stack, launched on a domain in your
             name.
           </p>
         </div>

@@ -48,7 +48,7 @@ export const standardStack: StackItem[] = [
     title: 'Contact and lead form',
     summary: 'A form that sends a new inquiry straight to you.',
     detail:
-      'Name, email, and what they need. The message comes to you. You are not waiting on a portal you do not control.',
+      'Name, email, and what they need. Inquiries land straight in your inbox.',
   },
   {
     title: 'Consultation booking link',
@@ -75,10 +75,10 @@ export const standardStack: StackItem[] = [
       'When the site is ready, I launch it on the domain you own and walk through it with you before you share the link.',
   },
   {
-    title: 'Domain in your name',
-    summary: 'I can register, connect, and manage it for you.',
+    title: 'Launch on your domain',
+    summary: 'The site goes live on a domain in your name.',
     detail:
-      'I can register the domain, connect it, and manage DNS, email records, and renewals. The domain stays in your name.',
+      'I launch the site on a domain in your name. I can register it, connect it, and manage DNS, email records, and renewals. Registration and renewal fees stay with you. The domain stays in your name.',
   },
 ]
 
