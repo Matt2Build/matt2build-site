@@ -180,7 +180,7 @@ export const projects: Project[] = [
     kicker: 'Live demo',
     summary: 'A mobile-first site for a working agent, ready to click through.',
     detail:
-      'Neighborhood pages, buyer and seller guides, calculators, and a home-value request. Mobile-first, and no MLS listings needed.',
+      'Neighborhood pages, buyer and seller guides, calculators, a home-value request, and no MLS listings needed.',
     href: '/demo',
     linkLabel: 'View the live demo',
     shots: [
