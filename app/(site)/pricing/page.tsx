@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { TrackedLink } from '@/components/tracked-link'
 import { FaqList } from '@/components/faq-list'
 import { JsonLd } from '@/components/json-ld'
 import { ComparisonTable } from '@/components/comparison-table'
@@ -69,9 +69,9 @@ export default function PricingPage() {
       <section className="py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Ready when you are.</h2>
-          <Link href="/contact" className="btn-primary inline-block">
+          <TrackedLink href="/contact" className="btn-primary inline-block" event="start_project_clicked" properties={{ location: 'pricing' }}>
             Start a project
-          </Link>
+          </TrackedLink>
         </div>
       </section>
     </>

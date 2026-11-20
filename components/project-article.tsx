@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { TrackedLink } from '@/components/tracked-link'
 import { Screenshot } from '@/components/screenshot'
 import type { Project } from '@/lib/site'
 
@@ -14,9 +14,9 @@ export function ProjectArticle({ project, priority = false }: { project: Project
       <p className="text-gray-400 leading-7 mb-4">{project.detail}</p>
       {project.href?.startsWith('/') ? (
         <p className="mb-6">
-          <Link className="btn-primary" href={project.href}>
+          <TrackedLink className="btn-primary" href={project.href} event="demo_opened" properties={{ location: 'portfolio' }}>
             {project.linkLabel}
-          </Link>
+          </TrackedLink>
         </p>
       ) : project.href ? (
         <p className="mb-6">

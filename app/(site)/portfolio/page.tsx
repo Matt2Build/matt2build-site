@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { TrackedLink } from '@/components/tracked-link'
 import { JsonLd } from '@/components/json-ld'
 import { ProjectArticle } from '@/components/project-article'
 import { pageMetadata } from '@/lib/metadata'
@@ -60,9 +61,9 @@ export default function PortfolioPage() {
             Tell me the market and what you want the site to do. {BUILD_PRICE} to build. Optional {MONTHLY_PRICE} a
             month if you want hosting, maintenance, domain management and back-end support handled.
           </p>
-          <Link href="/contact" className="btn-primary inline-block">
+          <TrackedLink href="/contact" className="btn-primary inline-block" event="start_project_clicked" properties={{ location: 'portfolio' }}>
             Start a project
-          </Link>
+          </TrackedLink>
         </div>
       </section>
     </>

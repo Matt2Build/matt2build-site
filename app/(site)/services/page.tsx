@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { TrackedLink } from '@/components/tracked-link'
 import { JsonLd } from '@/components/json-ld'
 import { pageMetadata } from '@/lib/metadata'
 import { BUILD_PRICE, MONTHLY_PRICE, standardStack } from '@/lib/site'
@@ -23,9 +24,9 @@ export default function ServicesPage() {
             I build custom websites, and tools when you need them, for real estate agents anywhere in the United
             States. The {BUILD_PRICE} build is a custom design on the standard stack, launched on a domain in your
             own account.{' '}
-            <Link href="/demo" className="text-matrix-400 hover:underline">
+            <TrackedLink href="/demo" className="text-matrix-400 hover:underline" event="demo_opened" properties={{ location: 'services' }}>
               See a live demo
-            </Link>{' '}
+            </TrackedLink>{' '}
             of that kind of site.
           </p>
         </div>

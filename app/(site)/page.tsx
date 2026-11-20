@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { TrackedLink } from '@/components/tracked-link'
 import { JsonLd } from '@/components/json-ld'
 import { pageMetadata } from '@/lib/metadata'
 import { BUILD_PRICE, MONTHLY_PRICE } from '@/lib/site'
@@ -13,7 +14,7 @@ export const metadata = pageMetadata({ title, description, path: '/', absolute: 
 const benefits = [
   { title: 'Custom design', line: 'Designed around you and your market.' },
   { title: 'You own the domain', line: 'I register it in your own account, or transfer it to you.' },
-  { title: 'Built by an agent', line: 'Selling homes since 2014, and I build the tools.' },
+  { title: 'Built by an agent', line: 'Licensed realtor since 2014, and I build the tools.' },
   { title: 'Anywhere in the U.S.', line: 'I work with agents in any state.' },
 ]
 
@@ -90,12 +91,12 @@ export default function HomePage() {
               .
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Link href="/contact" className="btn-primary">
+              <TrackedLink href="/contact" className="btn-primary" event="start_project_clicked" properties={{ location: 'home_hero' }}>
                 Start a project
-              </Link>
-              <Link href="/demo" className="btn-secondary">
+              </TrackedLink>
+              <TrackedLink href="/demo" className="btn-secondary" event="demo_opened" properties={{ location: 'home_hero' }}>
                 See a live demo
-              </Link>
+              </TrackedLink>
             </div>
           </div>
 
@@ -189,9 +190,14 @@ export default function HomePage() {
                   <p className="mt-2 text-sm text-gray-400 leading-6">{item.line}</p>
                   {item.external && 'sameTab' in item && item.sameTab ? (
                     <p className="mt-3 text-sm">
-                      <Link href={item.external} className="text-matrix-400 hover:underline">
+                      <TrackedLink
+                        href={item.external}
+                        className="text-matrix-400 hover:underline"
+                        event="demo_opened"
+                        properties={{ location: 'home_work' }}
+                      >
                         {item.linkLabel}
-                      </Link>
+                      </TrackedLink>
                     </p>
                   ) : item.external ? (
                     <p className="mt-3 text-sm">
@@ -265,9 +271,9 @@ export default function HomePage() {
               </Link>{' '}
               for a short written teardown.
             </p>
-            <Link href="/contact" className="btn-primary mt-8">
+            <TrackedLink href="/contact" className="btn-primary mt-8" event="start_project_clicked" properties={{ location: 'home_closing' }}>
               Start a project
-            </Link>
+            </TrackedLink>
           </div>
         </div>
       </section>

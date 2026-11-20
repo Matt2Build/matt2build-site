@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { TrackedLink } from '@/components/tracked-link'
 import { JsonLd } from '@/components/json-ld'
 import { pageMetadata } from '@/lib/metadata'
 import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
@@ -64,9 +64,14 @@ export default function BrokerageSwitchPage() {
         </div>
 
         <p className="mt-12">
-          <Link href="/contact" className="btn-primary inline-block">
+          <TrackedLink
+            href="/contact"
+            className="btn-primary inline-block"
+            event="brokerage_switch_cta_clicked"
+            properties={{ location: 'brokerage_page' }}
+          >
             Tell me about your move
-          </Link>
+          </TrackedLink>
         </p>
       </article>
     </>
