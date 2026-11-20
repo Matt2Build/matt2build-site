@@ -19,7 +19,7 @@ export function ProjectArticle({ project, priority = false }: { project: Project
           </a>
         </p>
       ) : (
-        <p className="text-sm font-mono text-matrix-400 mb-6">Not public yet. Screenshots only.</p>
+        <p className="text-sm font-mono text-matrix-400 mb-6">Screenshots only.</p>
       )}
 
       <div className={mobileShots.length > 0 ? 'grid gap-4 lg:grid-cols-[minmax(0,1fr)_220px] items-start' : 'grid gap-4'}>

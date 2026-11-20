@@ -6,7 +6,7 @@ import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Custom Website for Realtors'
 const description =
-  'A custom website for realtors: mobile-first design, bio page, contact form, booking link, SEO, and analytics. $750 to build, $50 a month. No listing feeds.'
+  'Custom websites for realtors: design, bio, contact form, booking, SEO, and analytics. $750 to build. Optional $50 a month.'
 
 export const metadata = pageMetadata({ title, description, path: '/services' })
 
@@ -21,8 +21,8 @@ export default function ServicesPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Custom websites for realtors.</h1>
           <p className="text-lg text-gray-300 leading-8">
             I build custom websites, and tools when you need them, for real estate agents anywhere in the United
-            States. The {BUILD_PRICE} site is designed for you and includes the standard stack. It is not a
-            template.
+            States. The {BUILD_PRICE} build is a custom design on the standard stack, including the domain in your
+            name.
           </p>
         </div>
       </section>
@@ -60,8 +60,8 @@ export default function ServicesPage() {
           <div className="p-8 rounded-xl border border-cyber-light">
             <h2 className="text-2xl font-bold text-white mb-3">You own it</h2>
             <p className="text-gray-300 leading-7">
-              You own your domain. The site stays with you if you change brokerages. A brokerage-provided site is
-              usually tied to the brokerage. Yours isn&apos;t.
+              You own your domain. I can register it, connect it, and manage DNS, email records, and renewals. It
+              stays in your name if you change brokerages.
             </p>
           </div>
         </div>
@@ -71,9 +71,9 @@ export default function ServicesPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-white mb-3">Beyond the stack</h2>
           <p className="text-gray-300 leading-7 mb-4">
-            The {BUILD_PRICE} build is the custom site. Hosting, maintenance, and support are {MONTHLY_PRICE} a
-            month, month to month, cancel anytime. A calculator, a dashboard, or another tool past that stack is
-            quoted separately before I start.
+            The {BUILD_PRICE} build is the custom site. Want it handled? {MONTHLY_PRICE}/month covers hosting,
+            maintenance, domain management and back-end support. Month to month, cancel anytime. A calculator, a
+            dashboard, or another tool past that stack is quoted separately before I start.
           </p>
         </div>
       </section>

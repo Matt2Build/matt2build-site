@@ -6,13 +6,13 @@ import { webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Real Estate Agent Website Builder'
 const description =
-  'Custom real estate agent websites and tools from a licensed realtor. $750 to build, $50 a month. You keep the site.'
+  'Custom real estate agent websites from a licensed realtor. $750 to build. Optional $50 a month for hosting and support.'
 
 export const metadata = pageMetadata({ title, description, path: '/', absolute: true })
 
 const benefits = [
-  { title: 'Custom, not a template', line: 'Designed around you and your market.' },
-  { title: 'You own the domain', line: 'It stays with you if you change brokerages.' },
+  { title: 'Custom design', line: 'Designed around you and your market.' },
+  { title: 'You own the domain', line: 'I can register and manage it in your name.' },
   { title: 'Built by an agent', line: 'Selling homes since 2014, and I build the tools.' },
   { title: 'Anywhere in the U.S.', line: 'I work with agents in any state.' },
 ]
@@ -20,7 +20,7 @@ const benefits = [
 const steps = [
   { title: 'Tell me', line: 'Your market and what you want.' },
   { title: 'I build it', line: 'A custom site on a standard stack.' },
-  { title: 'You launch', line: 'Live on your domain. Cancel anytime.' },
+  { title: 'You launch', line: 'Live on your domain. Monthly help is optional.' },
 ]
 
 const showcase = [
@@ -46,7 +46,7 @@ const showcase = [
   },
   {
     title: 'WriteMyOffer',
-    line: 'The buyer site I built for myself. Not for sale.',
+    line: 'The buyer-offer site I built for my own business.',
     study: '/portfolio#writemyoffer',
     external: 'https://writemyoffer.com',
     linkLabel: 'writemyoffer.com',
@@ -208,9 +208,12 @@ export default function HomePage() {
           <div className="rounded-3xl border border-matrix-500/25 bg-matrix-500/[0.06] px-6 py-10 sm:px-10 sm:py-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <h2 id="pricing-heading" className="text-3xl sm:text-4xl font-bold text-white">
-                {BUILD_PRICE} to build. {MONTHLY_PRICE} a month.
+                {BUILD_PRICE} to build.
               </h2>
-              <p className="mt-3 text-gray-300">Hosting, maintenance, and support. Month to month.</p>
+              <p className="mt-3 text-gray-300">
+                Want it handled? {MONTHLY_PRICE}/month covers hosting, maintenance, domain management and back-end
+                support. Month to month, cancel anytime.
+              </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/pricing" className="btn-primary">
