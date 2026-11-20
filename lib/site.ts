@@ -28,7 +28,7 @@ export type StackItem = {
 export const standardStack: StackItem[] = [
   {
     title: 'Custom design',
-    summary: 'Designed for you. Not a template with your name dropped in.',
+    summary: 'Designed around your name, your market, and how you work.',
     detail:
       'I design the site around your name, your market, and how you actually work.',
   },
