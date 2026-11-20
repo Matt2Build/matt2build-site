@@ -1,35 +1,48 @@
 import Link from 'next/link'
+import { DemoPhoto } from '@/components/demo/demo-photo'
 import { demoMetadata } from '@/lib/demo-metadata'
+import { exampleListings } from '@/lib/demo'
 
 export const metadata = demoMetadata(
-  'Start a home search',
-  'How a live agent site can point buyers to a brokerage or MLS search, or to an IDX feed the agent already has.',
+  'Browse homes',
+  'Browse example homes in Lakeview, then contact Jordan to start a search.',
   '/demo/search',
 )
 
 export default function SearchPage() {
   return (
-    <article className="mx-auto max-w-3xl px-4 py-14">
+    <article className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6b4f28]">Search</p>
-      <h1 className="mt-3 font-serif text-4xl text-[#1f3a32] sm:text-5xl">Start my home search</h1>
-      <div className="mt-6 space-y-4 text-lg leading-8 text-[#3d3832]">
-        <p>This sample site does not show homes for sale. There is no listing feed here.</p>
-        <p>
-          On a site built for a working agent, this page is where a buyer goes next. It can link to the search the
-          agent&apos;s brokerage already offers, or to the MLS search that agent is allowed to use. If the agent
-          already has an IDX feed of their own, the page can embed that feed.
-        </p>
-        <p>
-          Matt2Build builds the marketing site around that handoff. Matt2Build does not provide IDX or MLS listing
-          feeds.
-        </p>
-      </div>
-      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-        <Link href="/demo/neighborhoods" className="rounded-full bg-[#1f3a32] px-6 py-3 text-center font-semibold text-[#f4efe6]">
+      <h1 className="mt-3 font-serif text-4xl text-[#1f3a32] sm:text-6xl">Browse homes</h1>
+      <p className="mt-5 max-w-2xl text-lg leading-8 text-[#3d3832]">
+        Ready to tour?{' '}
+        <Link href="/demo/contact" className="font-semibold text-[#1f3a32] underline underline-offset-4">
+          Contact Jordan
+        </Link>{' '}
+        to start a search.
+      </p>
+      <ul className="mt-12 grid gap-8 md:grid-cols-3">
+        {exampleListings.map((home) => (
+          <li key={home.address} className="overflow-hidden rounded-3xl bg-white">
+            <div className="relative aspect-[3/2]">
+              <DemoPhoto image={home.image} fill sizes="(min-width: 768px) 30vw, 100vw" />
+            </div>
+            <div className="p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6b4f28]">Example listing</p>
+              <h2 className="mt-2 font-serif text-2xl text-[#1f3a32]">{home.address}</h2>
+              <p className="mt-1 text-sm text-[#5c564e]">{home.area}</p>
+              <p className="mt-4 font-serif text-3xl text-[#1f3a32]">{home.price}</p>
+              <p className="mt-1 text-sm text-[#5c564e]">{home.detail}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-12 flex flex-col gap-3 sm:flex-row">
+        <Link href="/demo/neighborhoods" className="rounded-full bg-[#1f3a32] px-6 py-3 text-center font-semibold text-[#f4efe6] transition-colors hover:bg-[#173028]">
           Read the neighborhood guides
         </Link>
-        <Link href="/demo/contact" className="rounded-full border border-[#1f3a32] px-6 py-3 text-center font-semibold text-[#1f3a32]">
-          Ask Jordan a question
+        <Link href="/demo/contact" className="rounded-full border border-[#1f3a32] px-6 py-3 text-center font-semibold text-[#1f3a32] transition-colors hover:bg-[#1f3a32]/5">
+          Ask a question
         </Link>
       </div>
     </article>

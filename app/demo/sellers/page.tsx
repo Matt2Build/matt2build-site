@@ -3,7 +3,7 @@ import { demoMetadata } from '@/lib/demo-metadata'
 
 export const metadata = demoMetadata(
   'Seller guide',
-  'A sample seller checklist for a fictional Lakeview agent site, from prep through closing.',
+  'A seller guide for Lakeview, from prep and pricing through closing.',
   '/demo/sellers',
 )
 
@@ -20,9 +20,9 @@ export default function SellersPage() {
   return (
     <article className="mx-auto max-w-3xl px-4 py-14">
       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6b4f28]">Sellers</p>
-      <h1 className="mt-3 font-serif text-4xl text-[#1f3a32] sm:text-5xl">A seller guide, from prep to closing.</h1>
+      <h1 className="mt-3 font-serif text-4xl text-[#1f3a32] sm:text-5xl">A plan for selling in Lakeview.</h1>
       <p className="mt-4 text-lg leading-8 text-[#3d3832]">
-        A seller page gives people the sequence before they ask what their house might bring.
+        Prep, price, showings, and the offer. This is the sequence before we talk about what your house might bring.
       </p>
       <ol className="mt-8 space-y-4">
         {steps.map((step, index) => (

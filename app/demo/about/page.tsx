@@ -1,29 +1,30 @@
-import { DemoPortrait } from '@/components/demo/demo-portrait'
+import { Monogram } from '@/components/demo/monogram'
 import { demoMetadata } from '@/lib/demo-metadata'
 
 export const metadata = demoMetadata(
   'About Jordan Avery',
-  'Jordan Avery is a fictional realtor used as a sample on a Matt2Build demo site. Lakeview is not a claimed market.',
+  'Jordan Avery helps buyers and sellers in Lakeview with the neighborhood, the numbers, and the plan.',
   '/demo/about',
 )
 
 export default function AboutDemoPage() {
   return (
-    <article className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-14 lg:grid-cols-[280px_minmax(0,1fr)]">
-      <DemoPortrait className="w-full max-w-xs rounded-[2rem]" />
+    <article className="mx-auto grid max-w-6xl items-start gap-12 px-4 py-16 sm:py-20 lg:grid-cols-[220px_minmax(0,1fr)]">
+      <Monogram className="h-40 w-40 text-4xl text-[#1f3a32]" />
       <div>
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6b4f28]">About</p>
-        <h1 className="mt-3 font-serif text-4xl text-[#1f3a32] sm:text-5xl">I&apos;m Jordan Avery.</h1>
-        <div className="mt-5 space-y-4 text-lg leading-8 text-[#3d3832]">
+        <h1 className="mt-3 font-serif text-4xl text-[#1f3a32] sm:text-6xl">I&apos;m Jordan Avery.</h1>
+        <div className="mt-6 max-w-2xl space-y-5 text-lg leading-8 text-[#3d3832]">
           <p>
-            I&apos;m the sample agent on this demo. I work with buyers and sellers in Lakeview, a fictional market
-            made for this site. The portrait is an illustration, not a photograph of a real person.
+            I work with buyers and sellers in Lakeview. The first conversation is about the neighborhood, the
+            numbers, and what has to happen between now and closing.
           </p>
           <p>
-            A real about page is where an agent says how they work: the questions they ask first, the markets they
-            cover, and how someone should get in touch. This page shows that shape without a sales record.
+            If you are buying, I&apos;ll help you narrow the streets before you spend a Saturday in the car. If you
+            are selling, I&apos;ll walk the house with you and talk through price, prep, and what an offer actually
+            says.
           </p>
-          <p>Nothing here is a real listing, a real client, or a count of homes sold.</p>
+          <p>Send a note when you want to start. I&apos;ll reply with the next useful step.</p>
         </div>
       </div>
     </article>

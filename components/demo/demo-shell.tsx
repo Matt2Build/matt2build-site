@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Monogram } from '@/components/demo/monogram'
 import { demoNav } from '@/lib/demo'
 
 export function DemoShell({ children }: { children: React.ReactNode }) {
@@ -24,13 +25,16 @@ export function DemoShell({ children }: { children: React.ReactNode }) {
         </div>
         <header className="border-b border-[#1f3a32]/15 bg-[#f4efe6]/95 backdrop-blur">
           <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
-            <Link href="/demo" className="leading-tight">
-              <span className="block font-serif text-xl text-[#1f3a32]">Jordan Avery</span>
-              <span className="block text-xs tracking-[0.16em] uppercase text-[#6d6458]">Realtor · Lakeview</span>
+            <Link href="/demo" className="flex items-center gap-3 leading-tight">
+              <Monogram className="h-10 w-10 text-sm text-[#1f3a32]" />
+              <span>
+                <span className="block font-serif text-xl text-[#1f3a32]">Jordan Avery</span>
+                <span className="block text-xs tracking-[0.16em] uppercase text-[#6d6458]">Realtor · Lakeview</span>
+              </span>
             </Link>
             <nav className="hidden lg:flex items-center gap-5 text-sm" aria-label="Demo">
               {demoNav.map((item) => (
-                <Link key={item.href} href={item.href} className="text-[#3d3832] hover:text-[#1f3a32]">
+                <Link key={item.href} href={item.href} className="text-[#3d3832] transition-colors hover:text-[#1f3a32]">
                   {item.label}
                 </Link>
               ))}
@@ -55,8 +59,11 @@ export function DemoShell({ children }: { children: React.ReactNode }) {
       </div>
       <main id="content">{children}</main>
       <footer className="border-t border-[#1f3a32]/15">
-        <div className="max-w-6xl mx-auto px-4 py-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between text-sm text-[#5c564e]">
-          <p>Jordan Avery is a fictional agent. Lakeview is a sample market. Example data only.</p>
+        <div className="max-w-6xl mx-auto px-4 py-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between text-sm text-[#5c564e]">
+          <div className="space-y-1">
+            <p>Jordan Avery is a fictional agent. Lakeview is a sample market. Example data only.</p>
+            <p>Photos: Pexels</p>
+          </div>
           <p>
             <a className="underline" href="https://matt2build.com">
               matt2build.com

@@ -16,17 +16,13 @@ export function DemoRequestForm({ kind }: { kind: 'value' | 'contact' }) {
   if (sent) {
     return (
       <p className="rounded-2xl border border-[#1f3a32]/20 bg-white px-5 py-4 leading-7" role="status">
-        This is a demo. Nothing was sent or saved.
-        {kind === 'value'
-          ? ' On a live site, this home-value request would go to the agent.'
-          : ' On a live site, this message would go to the agent.'}
+        Thank you. I&apos;ll be in touch.
       </p>
     )
   }
 
   return (
     <form className="space-y-4" onSubmit={onSubmit}>
-      <p className="text-sm text-[#5c564e]">Demo only. This form does not send email or store what you type.</p>
       {kind === 'value' ? (
         <div>
           <label htmlFor="address" className="text-sm font-semibold">
