@@ -14,7 +14,7 @@ const benefits = [
   { title: 'Custom, not a template', line: 'Designed around you and your market.' },
   { title: 'You own the domain', line: 'It stays with you if you change brokerages.' },
   { title: 'Built by an agent', line: 'Twelve years selling homes, and I build the tools.' },
-  { title: 'Anywhere in the U.S.', line: 'I work with agents in every state.' },
+  { title: 'Anywhere in the U.S.', line: 'I work with agents in any state.' },
 ]
 
 const steps = [
