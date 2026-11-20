@@ -1,17 +1,8 @@
 import Link from 'next/link'
-import { FaqList } from '@/components/faq-list'
 import { JsonLd } from '@/components/json-ld'
-import { PricingCards } from '@/components/pricing-cards'
-import { Screenshot } from '@/components/screenshot'
 import { pageMetadata } from '@/lib/metadata'
-import {
-  BUILD_PRICE,
-  featuredProjects,
-  homeFaqs,
-  MONTHLY_PRICE,
-  standardStack,
-} from '@/lib/site'
-import { faqJsonLd, webPageJsonLd } from '@/lib/structured-data'
+import { BUILD_PRICE, MONTHLY_PRICE } from '@/lib/site'
+import { webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Websites and Tools for Real Estate Agents'
 const description =
@@ -19,18 +10,50 @@ const description =
 
 export const metadata = pageMetadata({ title, description, path: '/', absolute: true })
 
+const benefits = [
+  { title: 'Custom, not a template', line: 'Designed around you and your market.' },
+  { title: 'You own the domain', line: 'It stays with you if you change brokerages.' },
+  { title: 'Built by an agent', line: 'Twelve years selling homes, and I build the tools.' },
+  { title: 'Anywhere in the U.S.', line: 'I work with agents in every state.' },
+]
+
 const steps = [
+  { title: 'Tell me', line: 'Your market and what you want.' },
+  { title: 'I build it', line: 'A custom site on a standard stack.' },
+  { title: 'You launch', line: 'Live on your domain. Cancel anytime.' },
+]
+
+const showcase = [
   {
-    title: 'Tell me what you want',
-    body: 'Your market, your brokerage, and what the site should do. I work with agents anywhere in the United States.',
+    title: 'WorkflowRealtor',
+    line: 'Pipeline, clients, and deadlines. Screenshots only.',
+    study: '/portfolio#workflowrealtor',
+    src: '/workflowrealtor-home-desktop.webp',
+    alt: 'WorkflowRealtor sign-in screen with the headline Your business dashboard first.',
+    width: 1200,
+    height: 750,
   },
   {
-    title: 'I build it',
-    body: 'A custom site on the standard stack. If you want a tool beyond that, I quote it before I start.',
+    title: 'MoverMath',
+    line: 'Compare U.S. states and counties for a move.',
+    study: '/portfolio#movermath',
+    external: 'https://movermath.com',
+    linkLabel: 'movermath.com',
+    src: '/movermath-home-desktop.webp',
+    alt: 'MoverMath map of median household income across U.S. states.',
+    width: 1200,
+    height: 750,
   },
   {
-    title: 'You launch',
-    body: `The domain is yours. I host the site and keep it maintained for ${MONTHLY_PRICE} a month. Cancel anytime.`,
+    title: 'WriteMyOffer',
+    line: 'My Washington buyer site. Not for sale.',
+    study: '/portfolio#writemyoffer',
+    external: 'https://writemyoffer.com',
+    linkLabel: 'writemyoffer.com',
+    src: '/writemyoffer-home-desktop.webp',
+    alt: 'WriteMyOffer homepage with the headline You Found the House. You Get the Savings.',
+    width: 1200,
+    height: 750,
   },
 ]
 
@@ -38,181 +61,177 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={webPageJsonLd({ title, description, path: '/' })} />
-      <JsonLd data={faqJsonLd(homeFaqs, '/')} />
 
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="section-chip mb-8">For real estate agents anywhere in the U.S.</p>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-4">
-            Websites and tools for real estate agents.
-          </h1>
-          <p className="text-2xl md:text-3xl text-matrix-500 glow-text mb-8">Built by a working agent.</p>
-          <p className="text-lg text-gray-300 leading-8 mb-4">
-            I&apos;m Matt Salit. I&apos;ve been a Snohomish County, Washington realtor and an NWMLS member for 12
-            years, and I build software for the work. I make custom websites and tools for agents anywhere in the
-            United States.
-          </p>
-          <p className="text-lg text-gray-400 leading-8 mb-8">
-            Your site is built around what you want. It isn&apos;t a template. Every build includes my standard
-            stack, and you own the domain. If you change brokerages, the site stays with you.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-            <Link href="/contact" className="btn-primary">
-              Start a project
-            </Link>
-            <Link href="/pricing" className="btn-secondary">
-              See pricing
-            </Link>
-          </div>
-          <p className="text-sm text-gray-500 font-mono">I reply within one business day.</p>
-        </div>
-      </section>
-
-      <section className="py-16" aria-labelledby="how-heading">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 id="how-heading" className="text-3xl md:text-4xl font-bold text-white mb-10 text-center">
-            How a build goes
-          </h2>
-          <ol className="space-y-8">
-            {steps.map((step, index) => (
-              <li key={step.title} className="flex gap-6 items-start">
-                <span className="flex-shrink-0 w-10 h-10 rounded-full bg-matrix-500/20 border border-matrix-500/40 flex items-center justify-center text-matrix-400 font-bold">
-                  {index + 1}
-                </span>
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
-                  <p className="text-gray-400 leading-7">{step.body}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="py-16" aria-labelledby="stack-heading">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 id="stack-heading" className="text-3xl md:text-4xl font-bold text-white mb-4">
-              The standard stack
-            </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Included in the {BUILD_PRICE} build. The design is custom. These pieces come with it.
+      <section className="pt-28 pb-16 lg:pt-36 lg:pb-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-12">
+          <div>
+            <p className="section-chip mb-6">Agents anywhere in the U.S.</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.05]">
+              Websites and tools for real estate agents.
+            </h1>
+            <p className="mt-5 text-lg sm:text-xl text-gray-300 max-w-xl leading-snug">
+              Built by a working agent. Custom. Yours if you change brokerages.
             </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <Link href="/contact" className="btn-primary">
+                Start a project
+              </Link>
+              <Link href="/portfolio" className="btn-secondary">
+                See the work
+              </Link>
+            </div>
           </div>
-          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {standardStack.map((item) => (
-              <li key={item.title} className="p-6 bg-cyber-light/30 rounded-lg border border-cyber-light">
-                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-gray-400 leading-7">{item.summary}</p>
+
+          <div className="hero-stage">
+            <div className="device-float">
+              <img
+                src="/movermath-home-desktop-800.webp"
+                alt="MoverMath map of median household income across U.S. states."
+                width={800}
+                height={500}
+                decoding="async"
+              />
+            </div>
+            <div className="device-laptop">
+              <div className="device-dots" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </div>
+              <img
+                src="/workflowrealtor-home-desktop.webp"
+                srcSet="/workflowrealtor-home-desktop-800.webp 800w, /workflowrealtor-home-desktop.webp 1200w"
+                sizes="(min-width: 1024px) 520px, 92vw"
+                alt="WorkflowRealtor sign-in screen with the headline Your business dashboard first."
+                width={1200}
+                height={750}
+                decoding="async"
+              />
+            </div>
+            <div className="device-phone">
+              <img
+                src="/writemyoffer-home-mobile.webp"
+                alt="WriteMyOffer homepage on a phone, with the same headline and a start button."
+                width={780}
+                height={1688}
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-16" aria-labelledby="benefits-heading">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 id="benefits-heading" className="sr-only">
+            What you get
+          </h2>
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {benefits.map((item) => (
+              <li key={item.title} className="home-card rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+                <h3 className="text-white font-semibold">{item.title}</h3>
+                <p className="mt-2 text-sm text-gray-400 leading-6">{item.line}</p>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="py-16" aria-labelledby="ownership-heading">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-6 md:grid-cols-2">
-          <div className="p-8 rounded-xl border border-matrix-500/20 bg-cyber-light/20">
-            <h2 id="ownership-heading" className="text-2xl font-bold text-white mb-3">
-              The site stays with you
-            </h2>
-            <p className="text-gray-300 leading-7">
-              You own your domain. Register it in your name. If you leave your brokerage, the site goes with you.
-              A site your brokerage provides is usually tied to the brokerage. This one isn&apos;t.
-            </p>
-          </div>
-          <div className="p-8 rounded-xl border border-cyber-light bg-cyber-light/20">
-            <h2 className="text-2xl font-bold text-white mb-3">No IDX. No listing feed.</h2>
-            <p className="text-gray-300 leading-7">
-              I don&apos;t include IDX or MLS listing feeds. MLS rules don&apos;t allow a feed of listings on a
-              marketing site like this. I build the marketing site and the tools you own.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section className="py-16" aria-labelledby="work-heading">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
-            <div>
-              <h2 id="work-heading" className="text-3xl md:text-4xl font-bold text-white mb-3">
-                Work
-              </h2>
-              <p className="text-gray-400 text-lg max-w-2xl">
-                Real estate products I built. They are the proof, not a menu of templates.
-              </p>
-            </div>
-            <Link href="/portfolio" className="text-matrix-400 hover:underline">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-end justify-between gap-4 mb-8">
+            <h2 id="work-heading" className="text-3xl sm:text-4xl font-bold text-white">
+              Work
+            </h2>
+            <Link href="/portfolio" className="text-matrix-400 hover:underline shrink-0">
               All work
             </Link>
           </div>
-          <div className="grid gap-8 lg:grid-cols-3">
-            {featuredProjects.map((project) => {
-              const shot = project.shots[0]
-              return (
-                <article key={project.id} className="flex flex-col">
-                  <Screenshot src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} />
-                  <h3 className="text-xl font-semibold text-white mt-4">{project.title}</h3>
-                  <p className="text-gray-400 mt-2 leading-7 flex-1">{project.summary}</p>
-                  <p className="mt-3 text-sm">
-                    <Link className="text-matrix-400 hover:underline" href={`/portfolio#${project.id}`}>
-                      Case study
+          <div className="grid gap-6 md:grid-cols-3">
+            {showcase.map((item) => (
+              <article key={item.title} className="home-card rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden">
+                <Link href={item.study} className="block aspect-video overflow-hidden bg-black">
+                  <img
+                    src={item.src}
+                    srcSet={`${item.src.replace('.webp', '-800.webp')} 800w, ${item.src} 1200w`}
+                    sizes="(min-width: 768px) 30vw, 92vw"
+                    alt={item.alt}
+                    width={item.width}
+                    height={item.height}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover object-top"
+                  />
+                </Link>
+                <div className="p-5">
+                  <h3 className="text-lg font-semibold text-white">
+                    <Link href={item.study} className="hover:text-matrix-400">
+                      {item.title}
                     </Link>
-                    {project.href ? (
-                      <>
-                        <span className="text-gray-600"> · </span>
-                        <a className="text-matrix-400 hover:underline" href={project.href} target="_blank" rel="noopener noreferrer">
-                          {project.linkLabel}
-                          <span className="sr-only"> (opens in a new tab)</span>
-                        </a>
-                      </>
-                    ) : (
-                      <span className="text-gray-500"> · Screenshots only</span>
-                    )}
-                  </p>
-                </article>
-              )
-            })}
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-400 leading-6">{item.line}</p>
+                  {item.external ? (
+                    <p className="mt-3 text-sm">
+                      <a className="text-matrix-400 hover:underline" href={item.external} target="_blank" rel="noopener noreferrer">
+                        {item.linkLabel}
+                        <span className="sr-only"> (opens in a new tab)</span>
+                      </a>
+                    </p>
+                  ) : null}
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section id="pricing" className="py-16" aria-labelledby="pricing-heading">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 id="pricing-heading" className="text-3xl md:text-4xl font-bold text-white mb-4">
-              {BUILD_PRICE} to build. {MONTHLY_PRICE} a month.
-            </h2>
-            <p className="text-gray-400 text-lg">
-              One build fee. Hosting, maintenance, and support after that. Month to month.
-            </p>
-          </div>
-          <PricingCards />
-          <p className="text-center text-gray-400 mt-6">
-            Custom tools beyond the standard stack are quoted separately.{' '}
-            <Link href="/pricing" className="text-matrix-400 hover:underline">
-              Pricing details
-            </Link>
-          </p>
-        </div>
-      </section>
-
-      <section id="faq" className="py-16" aria-labelledby="faq-heading">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 id="faq-heading" className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
-            Questions
+      <section className="py-16" aria-labelledby="how-heading">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 id="how-heading" className="text-3xl sm:text-4xl font-bold text-white mb-8">
+            How it works
           </h2>
-          <FaqList faqs={homeFaqs} />
+          <ol className="grid gap-4 md:grid-cols-3">
+            {steps.map((step, index) => (
+              <li key={step.title} className="rounded-2xl border border-white/10 p-6">
+                <p className="font-mono text-matrix-400 text-sm">0{index + 1}</p>
+                <h3 className="mt-3 text-xl font-semibold text-white">{step.title}</h3>
+                <p className="mt-2 text-gray-400">{step.line}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section id="pricing" className="py-8" aria-labelledby="pricing-heading">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl border border-matrix-500/25 bg-matrix-500/[0.06] px-6 py-10 sm:px-10 sm:py-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <h2 id="pricing-heading" className="text-3xl sm:text-4xl font-bold text-white">
+                {BUILD_PRICE} to build. {MONTHLY_PRICE} a month.
+              </h2>
+              <p className="mt-3 text-gray-300">Hosting, maintenance, and support. Month to month.</p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link href="/pricing" className="btn-primary">
+                See pricing
+              </Link>
+              <Link href="/services" className="btn-secondary">
+                What&apos;s included
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="py-16">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Tell me what you want built.</h2>
-          <p className="text-gray-400 text-lg mb-8">Agents anywhere in the United States are welcome.</p>
-          <Link href="/contact" className="btn-primary inline-block">
-            Contact
-          </Link>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl border border-white/10 px-6 py-12 sm:px-12 text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white">Tell me what you want built.</h2>
+            <p className="mt-3 text-gray-400">Agents anywhere in the United States.</p>
+            <Link href="/contact" className="btn-primary mt-8">
+              Start a project
+            </Link>
+          </div>
         </div>
       </section>
     </>
