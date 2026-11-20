@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Screenshot } from '@/components/screenshot'
 import type { Project } from '@/lib/site'
 
@@ -11,7 +12,13 @@ export function ProjectArticle({ project, priority = false }: { project: Project
       <h2 className="text-3xl font-bold text-white mb-3">{project.title}</h2>
       <p className="text-lg text-gray-200 leading-8 mb-3">{project.summary}</p>
       <p className="text-gray-400 leading-7 mb-4">{project.detail}</p>
-      {project.href ? (
+      {project.href?.startsWith('/') ? (
+        <p className="mb-6">
+          <Link className="btn-primary" href={project.href}>
+            {project.linkLabel}
+          </Link>
+        </p>
+      ) : project.href ? (
         <p className="mb-6">
           <a className="text-matrix-400 hover:underline" href={project.href} target="_blank" rel="noopener noreferrer">
             {project.linkLabel}

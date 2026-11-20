@@ -7,7 +7,7 @@ import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Realtor Website Examples'
 const description =
-  'Realtor website examples from Matt Salit: WorkflowRealtor, MoverMath, WriteMyOffer, Moving2PNW, and GridView Pro. Custom work I designed and built.'
+  'Realtor website examples from Matt Salit: a live agent website demo, WorkflowRealtor, MoverMath, and WriteMyOffer.'
 
 export const metadata = pageMetadata({ title, description, path: '/portfolio' })
 
@@ -32,20 +32,9 @@ export default function PortfolioPage() {
           <h2 id="featured-work" className="sr-only">
             Real estate products
           </h2>
-          <Link
-            href="/demo"
-            className="mb-16 block rounded-3xl border border-matrix-500/30 bg-matrix-500/[0.06] p-8 sm:p-10"
-          >
-            <p className="section-chip mb-4">Live demo</p>
-            <h2 className="text-3xl font-bold text-white">See a live demo</h2>
-            <p className="mt-3 max-w-2xl text-gray-300 leading-7">
-              Click through a sample site for a fictional agent: neighborhood guides, buyer and seller steps, and
-              calculators, without a listing feed.
-            </p>
-          </Link>
           <div className="space-y-20">
-            {featuredProjects.map((project) => (
-              <ProjectArticle key={project.id} project={project} />
+            {featuredProjects.map((project, index) => (
+              <ProjectArticle key={project.id} project={project} priority={index === 0} />
             ))}
           </div>
         </div>

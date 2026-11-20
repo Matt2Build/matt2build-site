@@ -175,6 +175,25 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: 'agent-website-demo',
+    title: 'Agent website demo',
+    kicker: 'Live demo',
+    summary: 'A mobile-first site for a working agent, ready to click through.',
+    detail:
+      'Neighborhood pages, buyer and seller guides, calculators, and a home-value request. Mobile-first, and no MLS listings needed.',
+    href: '/demo',
+    linkLabel: 'View the live demo',
+    shots: [
+      {
+        src: '/agent-demo-home-desktop.webp',
+        alt: 'Agent website demo homepage with the headline Find your place in Lakeview.',
+        width: 1200,
+        height: 750,
+      },
+    ],
+    featured: true,
+  },
+  {
     id: 'workflowrealtor',
     title: 'WorkflowRealtor',
     kicker: 'Agent dashboard',
@@ -310,4 +329,6 @@ export const projects: Project[] = [
 
 export const featuredProjects = projects.filter((project) => project.featured)
 export const otherProjects = projects.filter((project) => !project.featured)
-export const productLinks = projects.filter((project) => project.href && project.linkLabel)
+export const productLinks = projects.filter(
+  (project) => project.href?.startsWith('http') && project.linkLabel,
+)

@@ -25,6 +25,18 @@ const steps = [
 
 const showcase = [
   {
+    title: 'Agent website demo',
+    line: 'Neighborhood pages, guides, calculators, and a home-value request.',
+    study: '/portfolio#agent-website-demo',
+    external: '/demo',
+    linkLabel: 'View the live demo',
+    sameTab: true,
+    src: '/agent-demo-home-desktop.webp',
+    alt: 'Agent website demo homepage with the headline Find your place in Lakeview.',
+    width: 1200,
+    height: 750,
+  },
+  {
     title: 'WorkflowRealtor',
     line: 'Pipeline, clients, and deadlines. Screenshots only.',
     study: '/portfolio#workflowrealtor',
@@ -171,7 +183,13 @@ export default function HomePage() {
                     </Link>
                   </h3>
                   <p className="mt-2 text-sm text-gray-400 leading-6">{item.line}</p>
-                  {item.external ? (
+                  {item.external && 'sameTab' in item && item.sameTab ? (
+                    <p className="mt-3 text-sm">
+                      <Link href={item.external} className="text-matrix-400 hover:underline">
+                        {item.linkLabel}
+                      </Link>
+                    </p>
+                  ) : item.external ? (
                     <p className="mt-3 text-sm">
                       <a className="text-matrix-400 hover:underline" href={item.external} target="_blank" rel="noopener noreferrer">
                         {item.linkLabel}
