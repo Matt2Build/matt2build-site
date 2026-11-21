@@ -30,7 +30,7 @@ export const siteGraph = {
       name: SITE_NAME,
       url: SITE_URL,
       email: CONTACT_EMAIL,
-      logo: `${SITE_URL}/apple-touch-icon.png`,
+      logo: `${SITE_URL}/brand/badge.png`,
       image: `${SITE_URL}/og-image.png`,
       founder: { '@id': `${SITE_URL}/#matt-salit` },
       sameAs: organizationSameAs,
