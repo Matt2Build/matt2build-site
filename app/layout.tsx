@@ -4,7 +4,7 @@ import { SITE_NAME, X_HANDLE } from '@/lib/site'
 import './globals.css'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://matt2build.com'),
+  metadataBase: new URL('https://brokerworkshop.com'),
   title: {
     default: 'Real Estate Agent Website Builder',
     template: `%s | ${SITE_NAME}`,
@@ -17,9 +17,9 @@ export const metadata: Metadata = {
     'custom website for realtors',
     'real estate agent website builder',
     'websites for realtors',
-    'Matt2Build',
+    'BrokerWorkshop',
   ],
-  authors: [{ name: 'Matt Salit', url: 'https://matt2build.com' }],
+  authors: [{ name: 'Matt Salit', url: 'https://brokerworkshop.com' }],
   creator: 'Matt Salit',
   publisher: SITE_NAME,
   robots: {
@@ -31,30 +31,30 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Real Estate Agent Website Builder | Matt2Build',
+    title: 'Real Estate Agent Website Builder | BrokerWorkshop',
     description:
       'Custom real estate agent websites from a licensed realtor. $750 to build. $50 a month for hosting, maintenance, domain management, and back-end support.',
     type: 'website',
     locale: 'en_US',
-    url: 'https://matt2build.com',
+    url: 'https://brokerworkshop.com',
     siteName: SITE_NAME,
     images: [
       {
-        url: 'https://matt2build.com/og-image.png',
+        url: 'https://brokerworkshop.com/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Matt2Build — custom websites for real estate agents, built by a licensed realtor.',
+        alt: 'BrokerWorkshop — custom websites for real estate agents, built by a licensed realtor.',
         type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Real Estate Agent Website Builder | Matt2Build',
+    title: 'Real Estate Agent Website Builder | BrokerWorkshop',
     description:
       'Custom real estate agent websites from a licensed realtor. $750 to build. $50 a month for hosting, maintenance, domain management, and back-end support.',
     creator: X_HANDLE,
-    images: ['https://matt2build.com/og-image.png'],
+    images: ['https://brokerworkshop.com/og-image.png'],
   },
   icons: {
     apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],

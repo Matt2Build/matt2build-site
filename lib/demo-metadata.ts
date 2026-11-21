@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
+import { SITE_URL } from '@/lib/site'
 
 const DEMO_SHARE_IMAGE = {
-  url: 'https://matt2build.com/og-demo.png',
+  url: `${SITE_URL}/og-demo.png`,
   width: 1200,
   height: 630,
-  alt: 'Find your place in Lakeview. Demo site by Matt2Build for Jordan Avery, a sample agent.',
+  alt: 'Find your place in Lakeview. Demo site by BrokerWorkshop for Jordan Avery, a sample agent.',
 }
 
 export function demoMetadata(title: string, description: string, path: string): Metadata {
-  const url = `https://matt2build.com${path}`
+  const url = `${SITE_URL}${path}`
   const fullTitle = `${title} | Jordan Avery`
 
   return {

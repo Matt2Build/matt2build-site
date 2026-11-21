@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
 
     const resend = getResend()
     const { data: sent, error } = await resend.emails.send({
-      from: 'Matt2Build Contact <contact@matt2build.com>',
+      from: 'BrokerWorkshop <contact@matt2build.com>',
       to: ['matt2build@gmail.com'],
       replyTo: fields.email,
       subject: `Start checklist from ${fields.name}`,
@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
           ${block('Sites they like', safe.likedSites)}
           ${block('Extra pages', safe.extraPages)}
           <p style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #eee; color: #666; font-size: 14px;">
-            Sent from the start checklist on matt2build.com. Reply to this email to reach ${safe.name}.
+            Sent from the start checklist on brokerworkshop.com. Reply to this email to reach ${safe.name}.
           </p>
         </div>
       `,
@@ -103,7 +103,7 @@ Extra pages:
 ${fields.extraPages}
 
 ---
-Sent from the start checklist on matt2build.com.
+Sent from the start checklist on brokerworkshop.com.
 Reply to this email to reach ${fields.name}.`,
     })
 

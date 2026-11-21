@@ -13,8 +13,8 @@ export function DemoShell({ children }: { children: React.ReactNode }) {
           <div className="max-w-6xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-sm">
             <p>
               Demo site by{' '}
-              <a className="underline underline-offset-2" href="https://matt2build.com">
-                Matt2Build
+              <a className="underline underline-offset-2" href="https://brokerworkshop.com">
+                BrokerWorkshop
               </a>
               . Sample agent and example data.
             </p>
@@ -65,8 +65,8 @@ export function DemoShell({ children }: { children: React.ReactNode }) {
             <p>Photos: Pexels</p>
           </div>
           <p>
-            <a className="underline" href="https://matt2build.com">
-              matt2build.com
+            <a className="underline" href="https://brokerworkshop.com">
+              brokerworkshop.com
             </a>
           </p>
         </div>

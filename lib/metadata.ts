@@ -23,7 +23,7 @@ export function pageMetadata({
     url: `${SITE_URL}/og-image.png`,
     width: 1200,
     height: 630,
-    alt: 'Matt2Build — custom websites for real estate agents, built by a licensed realtor.',
+    alt: 'BrokerWorkshop — custom websites for real estate agents, built by a licensed realtor.',
   }
 
   return {

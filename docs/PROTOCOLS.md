@@ -1,6 +1,6 @@
-# Matt2Build protocols
+# BrokerWorkshop protocols
 
-These are the standing rules for every Matt2Build build and hosting decision. They apply to this site and to every client site that follows.
+These are the standing rules for every BrokerWorkshop build and hosting decision. They apply to this site and to every client site that follows. The public site is brokerworkshop.com. The Vercel project is still `matt2build-site`.
 
 ## Profitability
 

@@ -16,19 +16,13 @@ const nextConfig = {
     ]
   },
   async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.matt2build.com',
-          },
-        ],
-        destination: 'https://matt2build.com/:path*',
-        statusCode: 301,
-      },
-    ]
+    const hosts = ['www.brokerworkshop.com', 'matt2build.com', 'www.matt2build.com']
+    return hosts.map((host) => ({
+      source: '/:path*',
+      has: [{ type: 'host', value: host }],
+      destination: 'https://brokerworkshop.com/:path*',
+      statusCode: 308,
+    }))
   },
   headers() {
     const turnstile = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY)

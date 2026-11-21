@@ -14,7 +14,7 @@ export const comparisonCaption =
 
 export const comparisonRows: ComparisonRow[] = [
   {
-    name: 'Matt2Build',
+    name: 'BrokerWorkshop',
     upfront: '$750',
     monthly: '$50 (hosting, maintenance, domain, back end)',
     design: 'Custom',

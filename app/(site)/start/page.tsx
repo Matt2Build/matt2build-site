@@ -6,7 +6,7 @@ import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Start checklist'
 const description =
-  'Send the details for a Matt2Build agent website: brokerage, logo link, bio, domain, and the pages you want.'
+  'Send the details for a BrokerWorkshop agent website: brokerage, logo link, bio, domain, and the pages you want.'
 
 export const metadata: Metadata = {
   ...pageMetadata({ title, description, path: '/start' }),

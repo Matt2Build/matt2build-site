@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { LogoMark, Wordmark } from '@/components/icons'
-import { CONTACT_EMAIL, productLinks } from '@/lib/site'
+import { CONTACT_EMAIL, productLinks, SITE_NAME } from '@/lib/site'
 
 export function SiteFooter() {
   return (
@@ -65,7 +65,7 @@ export function SiteFooter() {
         </div>
       </div>
       <p className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 text-sm text-gray-500">
-        © 2026 Matt2Build. Built by Matt Salit, a licensed realtor.
+        © 2026 {SITE_NAME}. Built by Matt Salit, a licensed realtor.
       </p>
     </footer>
   )

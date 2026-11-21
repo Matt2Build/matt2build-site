@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
 
     const resend = getResend()
     const { data: sent, error } = await resend.emails.send({
-      from: 'Matt2Build Contact <contact@matt2build.com>',
+      from: 'BrokerWorkshop <contact@matt2build.com>',
       to: ['matt2build@gmail.com'],
       replyTo: email,
       subject: `Teardown request: ${subjectUrl}`,
@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
             <div style="background: #f5f5f5; padding: 16px; border-radius: 8px; white-space: pre-wrap; line-height: 1.6;">${safeGoals}</div>
           </div>
           <p style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #eee; color: #666; font-size: 14px;">
-            Sent from the teardown form on matt2build.com. Reply to this email to reach ${safeName}.
+            Sent from the teardown form on brokerworkshop.com. Reply to this email to reach ${safeName}.
           </p>
         </div>
       `,
@@ -80,7 +80,7 @@ What they want from the site:
 ${goals || 'Not provided'}
 
 ---
-Sent from the teardown form on matt2build.com.
+Sent from the teardown form on brokerworkshop.com.
 Reply to this email to reach ${name}.`,
     })
 
