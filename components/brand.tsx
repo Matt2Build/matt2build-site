@@ -1,5 +1,6 @@
 'use client'
 
+import { useId } from 'react'
 import { Outfit } from 'next/font/google'
 
 const outfit = Outfit({
@@ -9,13 +10,20 @@ const outfit = Outfit({
 })
 
 export function LogoMark({ className = 'h-9 w-9 shrink-0' }: { className?: string }) {
+  const maskId = `keyhole-${useId().replace(/:/g, '')}`
   return (
     <svg className={className} viewBox="0 0 64 64" fill="none" aria-hidden="true">
+      <defs>
+        <mask id={maskId} maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+          <rect width="64" height="64" fill="#fff" />
+          <circle cx="32" cy="40.5" r="4" fill="#000" />
+          <path d="M30.3 42.5h3.4L35.8 50h-7.6z" fill="#000" />
+        </mask>
+      </defs>
       <rect width="64" height="64" rx="14" fill="#00ff00" />
       <path fill="#ffffff" d="M38 10h8v14h-8z" />
       <path fill="#ffffff" d="M12 34 32 13 52 34z" />
-      <path fill="#ffffff" fillRule="evenodd" d="M17 31h30v22H17zM22 36h20v17H22z" />
-      <path fill="#ffffff" fillRule="evenodd" d="M24.2 36H39.8A2.2 2.2 0 0 1 42 38.2V53H22V38.2A2.2 2.2 0 0 1 24.2 36zM29 44.55A4.5 4.5 0 1 0 35 44.55L36.6 51.2H27.4z" />
+      <path fill="#ffffff" mask={`url(#${maskId})`} d="M17 31h30v22H17z" />
     </svg>
   )
 }
