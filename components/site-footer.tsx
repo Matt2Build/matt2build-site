@@ -8,7 +8,7 @@ export function SiteFooter() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-8 md:grid-cols-3">
         <div>
           <div className="flex items-center gap-2 mb-3">
-            <LogoMark className="w-5 h-5 text-matrix-500" />
+            <LogoMark className="h-8 w-8 shrink-0" />
             <Wordmark className="text-lg" />
           </div>
           <p className="text-gray-400 text-sm leading-6">Custom websites and tools for real estate agents.</p>
