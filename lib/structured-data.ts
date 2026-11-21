@@ -137,7 +137,7 @@ export function webPageJsonLd({
     '@type': 'WebPage',
     '@id': `${url}#webpage`,
     url,
-    name: `${title} | Matt2Build`,
+    name: `${title} | ${SITE_NAME}`,
     description,
     isPartOf: { '@id': `${SITE_URL}/#website` },
     about: { '@id': `${SITE_URL}/#organization` },

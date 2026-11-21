@@ -66,7 +66,12 @@ export type StartFields = {
 
 export type GuardSuccess<T> = { ok: true; fields: T }
 
-const PRODUCTION_HOSTS = new Set(['matt2build.com', 'www.matt2build.com'])
+const PRODUCTION_HOSTS = new Set([
+  'brokerworkshop.com',
+  'www.brokerworkshop.com',
+  'matt2build.com',
+  'www.matt2build.com',
+])
 
 export function isAllowedFormHost(hostname: string): boolean {
   const host = hostname.toLowerCase()
@@ -107,7 +112,7 @@ function sharedChecks(headers: Headers, data: Record<string, unknown>, now: numb
     return fail(200, '', true)
   }
   if (!originAllowed(headers)) {
-    return fail(403, 'This form only accepts submissions from matt2build.com.')
+    return fail(403, 'This form only accepts submissions from brokerworkshop.com.')
   }
   const timed = verifyFormToken(data.form_token, now)
   if (timed === 'too-fast') return fail(400, 'Please wait a moment and try again.')

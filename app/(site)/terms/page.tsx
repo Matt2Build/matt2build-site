@@ -6,7 +6,7 @@ import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Terms of Service'
 const description =
-  `Terms for Matt2Build realtor websites: ${PRICE_LINE}`
+  `Terms for BrokerWorkshop realtor websites: ${PRICE_LINE}`
 
 export const metadata = pageMetadata({ title, description, path: '/terms' })
 
@@ -16,14 +16,14 @@ export default function TermsPage() {
       <JsonLd data={webPageJsonLd({ title, description, path: '/terms' })} />
       <JsonLd data={breadcrumbJsonLd('/terms', 'Terms')} />
       <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 lg:pt-40">
-        <p className="section-chip mb-6">Matt2Build</p>
+        <p className="section-chip mb-6">BrokerWorkshop</p>
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">Terms of Service</h1>
         <p className="text-sm text-gray-500 mb-10">Last updated: {POLICY_UPDATED}</p>
 
         <div className="space-y-8 text-gray-300 leading-8">
           <section>
             <p>
-              These terms cover matt2build.com and the website work I offer as Matt2Build. Questions can go to{' '}
+              These terms cover brokerworkshop.com and the website work I offer as BrokerWorkshop. Questions can go to{' '}
               <a className="text-matrix-400 hover:underline" href={`mailto:${CONTACT_EMAIL}`}>
                 {CONTACT_EMAIL}
               </a>

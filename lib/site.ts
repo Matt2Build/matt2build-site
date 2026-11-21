@@ -1,5 +1,5 @@
-export const SITE_URL = 'https://matt2build.com'
-export const SITE_NAME = 'Matt2Build'
+export const SITE_URL = 'https://brokerworkshop.com'
+export const SITE_NAME = 'BrokerWorkshop'
 export const CONTACT_EMAIL = 'matt2build@gmail.com'
 export const BUILD_PRICE = '$750'
 export const MONTHLY_PRICE = '$50'

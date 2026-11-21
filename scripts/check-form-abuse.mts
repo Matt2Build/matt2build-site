@@ -93,6 +93,8 @@ const expired = await decideContact(
 check('expired token rejected', expired.ok === false && expired.status === 400)
 
 check('preview host allowed', isAllowedFormHost('matt2build-site-git-form.vercel.app'))
+check('canonical host allowed', isAllowedFormHost('brokerworkshop.com'))
+check('old host still allowed', isAllowedFormHost('matt2build.com'))
 check('other vercel host rejected', isAllowedFormHost('other-project.vercel.app') === false)
 check('turnstile stays off without keys', turnstileConfigured() === false)
 

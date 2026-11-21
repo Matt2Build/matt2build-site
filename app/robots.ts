@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://matt2build.com/sitemap.xml',
-    host: 'https://matt2build.com',
+    sitemap: 'https://brokerworkshop.com/sitemap.xml',
+    host: 'https://brokerworkshop.com',
   }
 }

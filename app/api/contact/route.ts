@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
 
     const resend = getResend()
     const { data: sent, error } = await resend.emails.send({
-      from: 'Matt2Build Contact <contact@matt2build.com>',
+      from: 'BrokerWorkshop <contact@matt2build.com>',
       to: ['matt2build@gmail.com'],
       replyTo: email,
       subject: `New inquiry from ${name}`,
@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
             <div style="background: #f5f5f5; padding: 16px; border-radius: 8px; white-space: pre-wrap; line-height: 1.6;">${safeMessage}</div>
           </div>
           <p style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #eee; color: #666; font-size: 14px;">
-            Sent from the contact form on matt2build.com. Reply to this email to reach ${safeName}.
+            Sent from the contact form on brokerworkshop.com. Reply to this email to reach ${safeName}.
           </p>
         </div>
       `,
@@ -73,7 +73,7 @@ What they need:
 ${message}
 
 ---
-Sent from the contact form on matt2build.com.
+Sent from the contact form on brokerworkshop.com.
 Reply to this email to reach ${name}.`,
     })
 

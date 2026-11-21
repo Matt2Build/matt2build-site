@@ -6,7 +6,7 @@ import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Privacy Policy'
 const description =
-  'Privacy policy for Matt2Build, a realtor website studio. How the contact form handles your name, email, market, and message.'
+  'Privacy policy for BrokerWorkshop, a realtor website studio. How the contact form handles your name, email, market, and message.'
 
 export const metadata = pageMetadata({ title, description, path: '/privacy' })
 
@@ -16,14 +16,14 @@ export default function PrivacyPage() {
       <JsonLd data={webPageJsonLd({ title, description, path: '/privacy' })} />
       <JsonLd data={breadcrumbJsonLd('/privacy', 'Privacy')} />
       <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 lg:pt-40">
-        <p className="section-chip mb-6">Matt2Build</p>
+        <p className="section-chip mb-6">BrokerWorkshop</p>
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">Privacy Policy</h1>
         <p className="text-sm text-gray-500 mb-10">Last updated: {POLICY_UPDATED}</p>
 
         <div className="space-y-8 text-gray-300 leading-8">
           <section>
             <p>
-              This policy covers matt2build.com, the marketing site for Matt2Build. Matt2Build is Matt Salit. For
+              This policy covers brokerworkshop.com, the marketing site for BrokerWorkshop. BrokerWorkshop is Matt Salit. For
               privacy questions, email{' '}
               <a className="text-matrix-400 hover:underline" href={`mailto:${CONTACT_EMAIL}`}>
                 {CONTACT_EMAIL}
