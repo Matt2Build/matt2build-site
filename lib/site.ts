@@ -5,7 +5,9 @@ export const BUILD_PRICE = '$750'
 export const MONTHLY_PRICE = '$50'
 export const BUILD_PRICE_AMOUNT = '750'
 export const MONTHLY_PRICE_AMOUNT = '50'
-export const POLICY_UPDATED = 'November 20, 2026'
+export const POLICY_UPDATED = 'November 21, 2026'
+export const PRICE_LINE = `${BUILD_PRICE} to build. ${MONTHLY_PRICE} a month for hosting, maintenance, domain management, and back-end support.`
+export const TURNAROUND_LINE = 'Websites live within 48 hours of getting your content.'
 
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/matt-salit-8108003ba/'
 export const X_URL = 'https://x.com/soldwithsalit'
@@ -92,7 +94,7 @@ export type Faq = {
 export const pricingFaqs: Faq[] = [
   {
     question: 'How long does a build take?',
-    answer: 'Most sites are live within 1–2 weeks.',
+    answer: TURNAROUND_LINE,
   },
   {
     question: 'Do I need to supply all the content?',
@@ -105,7 +107,7 @@ export const pricingFaqs: Faq[] = [
   {
     question: "What's included in the monthly plan?",
     answer:
-      "Hosting, maintenance, domain management, and back-end support. It's optional and month to month. Cancel anytime. There's no cancellation fee.",
+      "Hosting, maintenance, domain management, and back-end support. It's part of the plan, and it's month to month. Cancel anytime. There's no cancellation fee.",
   },
   {
     question: 'Is there a contract?',
@@ -131,11 +133,6 @@ export const pricingFaqs: Faq[] = [
       "You do. I register the domain in your own registrar account, or I transfer it to you. It stays yours if you change brokerages.",
   },
   {
-    question: 'Do I have to pay monthly?',
-    answer:
-      'No. The $50 a month is optional, for agents who want me to handle hosting, maintenance, domain management and back-end support.',
-  },
-  {
     question: 'Can you handle the domain?',
     answer:
       'Yes. I can register it in your own account, connect it, and manage DNS, email records, and renewals. Or I can transfer a domain you already have.',
@@ -152,7 +149,7 @@ export const homeFaqs: Faq[] = [
   pricingFaqs[5],
   {
     question: 'What does a site cost?',
-    answer: `${BUILD_PRICE} once for the custom build. ${MONTHLY_PRICE} a month is optional, for hosting, maintenance, domain management, and back-end support. Cancel anytime. There's no cancellation fee. A tool past the usual site is priced on its own.`,
+    answer: `${BUILD_PRICE} to build, and ${MONTHLY_PRICE} a month for hosting, maintenance, domain management, and back-end support. Month to month. Cancel anytime. There's no cancellation fee. A tool past the usual site is priced on its own before I start.`,
   },
   pricingFaqs[8],
   pricingFaqs[4],

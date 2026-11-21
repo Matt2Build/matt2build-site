@@ -1,4 +1,4 @@
-import { decideContact, decideTeardown, isAllowedFormHost } from '../lib/form-guard.ts'
+import { decideContact, decideStart, decideTeardown, isAllowedFormHost } from '../lib/form-guard.ts'
 import { issueFormToken } from '../lib/form-token.ts'
 import { dailySendBlocked, isRateLimited, limitWithFallback, resetMemoryLimits } from '../lib/send-limit.ts'
 import { turnstileConfigured } from '../lib/turnstile.ts'
@@ -160,6 +160,45 @@ const teardown = await decideTeardown(
   now,
 )
 check('normal teardown accepted', teardown.ok === true)
+
+resetMemoryLimits()
+const startBody = {
+  name: 'Ada Agent',
+  email: 'ada@example.com',
+  brokerage: 'Harbor Realty',
+  disclosures: 'License 12345',
+  areas: 'Lakeview',
+  logo_choice: 'none',
+  headshot_url: '',
+  write_bio: true,
+  bio: '',
+  contact_shown: 'ada@example.com',
+  existing_site: '',
+  fax_number: '',
+  form_token: issueFormToken(now - 5_000),
+}
+const start = await decideStart(formRequest('https://matt2build.com', '203.0.113.40'), startBody, now)
+check('normal start checklist accepted', start.ok === true && start.fields.bio === 'Write it for me.')
+const startFast = await decideStart(
+  formRequest('https://matt2build.com', '203.0.113.41'),
+  { ...startBody, form_token: issueFormToken(now) },
+  now,
+)
+check('start checklist too fast rejected', startFast.ok === false && startFast.status === 400)
+const startOrigin = await decideStart(formRequest('https://evil.example', '203.0.113.42'), startBody, now)
+check('start checklist bad origin rejected', startOrigin.ok === false && startOrigin.status === 403)
+const startBig = await decideStart(
+  formRequest('https://matt2build.com', '203.0.113.43'),
+  { ...startBody, disclosures: 'a'.repeat(1001) },
+  now,
+)
+check('start checklist oversized rejected', startBig.ok === false && startBig.status === 400)
+const startLinks = await decideStart(
+  formRequest('https://matt2build.com', '203.0.113.44'),
+  { ...startBody, bio: 'https://a.example https://b.example www.c.example' },
+  now,
+)
+check('start checklist link spam rejected', startLinks.ok === false && startLinks.status === 400)
 
 const direct = isRateLimited('form:direct-test', now)
 check('memory limiter allows the first hit', direct === false)

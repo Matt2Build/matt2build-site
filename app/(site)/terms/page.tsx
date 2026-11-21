@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import { JsonLd } from '@/components/json-ld'
 import { pageMetadata } from '@/lib/metadata'
-import { BUILD_PRICE, CONTACT_EMAIL, MONTHLY_PRICE, POLICY_UPDATED } from '@/lib/site'
+import { BUILD_PRICE, CONTACT_EMAIL, MONTHLY_PRICE, POLICY_UPDATED, PRICE_LINE } from '@/lib/site'
 import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Terms of Service'
 const description =
-  'Terms for Matt2Build realtor websites: a $750 custom build. Optional $50 a month for hosting, maintenance, and support.'
+  `Terms for Matt2Build realtor websites: ${PRICE_LINE}`
 
 export const metadata = pageMetadata({ title, description, path: '/terms' })
 
@@ -35,9 +35,9 @@ export default function TermsPage() {
             <h2 className="text-2xl font-semibold text-white mb-3">The work</h2>
             <p>
               I design and build custom websites and tools for real estate agents anywhere in the United States. A
-              standard site build is {BUILD_PRICE}, paid once. Want it handled? Hosting, maintenance, domain
-              management, and back-end support are {MONTHLY_PRICE} a month. It&apos;s month to month. Cancel anytime.
-              No contract and no cancellation fee. A tool past the usual site is priced on its own before I start.
+              standard site build is {BUILD_PRICE}, paid once. Hosting, maintenance, domain management, and
+              back-end support are {MONTHLY_PRICE} a month. It&apos;s month to month. Cancel anytime. No contract and
+              no cancellation fee. A tool past the usual site is priced on its own before I start.
             </p>
             <p className="mt-4">
               The standard stack is a custom design, a mobile-first layout, a bio and about page, a contact and

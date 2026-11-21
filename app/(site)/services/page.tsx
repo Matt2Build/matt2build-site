@@ -2,12 +2,12 @@ import Link from 'next/link'
 import { TrackedLink } from '@/components/tracked-link'
 import { JsonLd } from '@/components/json-ld'
 import { pageMetadata } from '@/lib/metadata'
-import { BUILD_PRICE, MONTHLY_PRICE, standardStack } from '@/lib/site'
+import { BUILD_PRICE, MONTHLY_PRICE, PRICE_LINE, standardStack } from '@/lib/site'
 import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Custom Website for Realtors'
 const description =
-  'Custom websites for realtors: design, bio, contact form, booking, SEO, and analytics. $750 to build. Optional $50 a month.'
+  `Custom websites for realtors: design, bio, contact form, booking, SEO, and analytics. ${PRICE_LINE}`
 
 export const metadata = pageMetadata({ title, description, path: '/services' })
 
@@ -80,9 +80,9 @@ export default function ServicesPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-white mb-3">Beyond the stack</h2>
           <p className="text-gray-300 leading-7 mb-4">
-            The {BUILD_PRICE} build is the custom site. Want it handled? {MONTHLY_PRICE}/month covers hosting,
-            maintenance, domain management and back-end support. Month to month. Cancel anytime. No cancellation
-            fee. A calculator, a dashboard, or another tool past that is priced on its own before I start.
+            The {BUILD_PRICE} build is the custom site. {MONTHLY_PRICE}/month covers hosting, maintenance, domain
+            management, and back-end support. Month to month. Cancel anytime. No cancellation fee. A calculator, a
+            dashboard, or another tool past that is priced on its own before I start.
           </p>
         </div>
       </section>

@@ -2,16 +2,17 @@ import Link from 'next/link'
 import { TrackedLink } from '@/components/tracked-link'
 import { JsonLd } from '@/components/json-ld'
 import { pageMetadata } from '@/lib/metadata'
-import { BUILD_PRICE, MONTHLY_PRICE } from '@/lib/site'
+import { BUILD_PRICE, MONTHLY_PRICE, PRICE_LINE, TURNAROUND_LINE } from '@/lib/site'
 import { webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Real Estate Agent Website Builder'
 const description =
-  'Custom real estate agent websites from a licensed realtor. $750 to build. Optional $50 a month for hosting and support.'
+  `Custom real estate agent websites from a licensed realtor. ${PRICE_LINE}`
 
 export const metadata = pageMetadata({ title, description, path: '/', absolute: true })
 
 const benefits = [
+  { title: '48 hours', line: TURNAROUND_LINE },
   { title: 'Custom design', line: 'Designed around you and your market.' },
   { title: 'You own the domain', line: 'I register it in your own account, or transfer it to you.' },
   { title: 'Built by an agent', line: 'Licensed realtor since 2014, and I build the tools.' },
@@ -19,9 +20,9 @@ const benefits = [
 ]
 
 const steps = [
-  { title: 'Tell me', line: 'Your market and what you want.' },
+  { title: 'Tell me', line: 'Fill out the start checklist.' },
   { title: 'I build it', line: 'A custom site on a standard stack.' },
-  { title: 'You launch', line: 'Live on your domain. Monthly help is optional.' },
+  { title: 'You launch', line: TURNAROUND_LINE },
 ]
 
 const showcase = [
@@ -144,7 +145,7 @@ export default function HomePage() {
           <h2 id="benefits-heading" className="sr-only">
             What you get
           </h2>
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {benefits.map((item) => (
               <li key={item.title} className="home-card rounded-2xl border border-white/10 bg-white/[0.03] p-5">
                 <h3 className="text-white font-semibold">{item.title}</h3>
@@ -224,7 +225,19 @@ export default function HomePage() {
               <li key={step.title} className="rounded-2xl border border-white/10 p-6">
                 <p className="font-mono text-matrix-400 text-sm">0{index + 1}</p>
                 <h3 className="mt-3 text-xl font-semibold text-white">{step.title}</h3>
-                <p className="mt-2 text-gray-400">{step.line}</p>
+                <p className="mt-2 text-gray-400">
+                  {index === 0 ? (
+                    <>
+                      Fill out the{' '}
+                      <Link href="/start" className="text-matrix-400 hover:underline">
+                        start checklist
+                      </Link>
+                      .
+                    </>
+                  ) : (
+                    step.line
+                  )}
+                </p>
               </li>
             ))}
           </ol>
@@ -239,8 +252,8 @@ export default function HomePage() {
                 {BUILD_PRICE} to build.
               </h2>
               <p className="mt-3 text-gray-300">
-                Want it handled? {MONTHLY_PRICE}/month covers hosting, maintenance, domain management and back-end
-                support. Month to month. Cancel anytime. No cancellation fee.
+                {MONTHLY_PRICE}/month covers hosting, maintenance, domain management, and back-end support. Month to
+                month. Cancel anytime. No cancellation fee.
               </p>
               <p className="mt-3">
                 <Link href="/pricing#compare" className="text-matrix-400 hover:underline">

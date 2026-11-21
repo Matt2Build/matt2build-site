@@ -1,15 +1,16 @@
+import Link from 'next/link'
 import { TrackedLink } from '@/components/tracked-link'
 import { FaqList } from '@/components/faq-list'
 import { JsonLd } from '@/components/json-ld'
 import { ComparisonTable } from '@/components/comparison-table'
 import { PricingCards } from '@/components/pricing-cards'
 import { pageMetadata } from '@/lib/metadata'
-import { BUILD_PRICE, MONTHLY_PRICE, pricingFaqs } from '@/lib/site'
+import { BUILD_PRICE, MONTHLY_PRICE, PRICE_LINE, pricingFaqs } from '@/lib/site'
 import { breadcrumbJsonLd, faqJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Real Estate Agent Website Pricing'
 const description =
-  'Real estate agent website pricing: $750 to build. Optional $50 a month for hosting, maintenance, domain management, and support.'
+  `Real estate agent website pricing: ${PRICE_LINE}`
 
 export const metadata = pageMetadata({ title, description, path: '/pricing' })
 
@@ -28,9 +29,12 @@ export default function PricingPage() {
           </h1>
           <p className="text-3xl md:text-4xl font-bold text-white mb-4">{BUILD_PRICE} to build.</p>
           <p className="text-lg text-gray-300 leading-8">
-            Want it handled? {MONTHLY_PRICE}/month covers hosting, maintenance, domain management and back-end
-            support. Month to month. Cancel anytime. No cancellation fee. I build for agents anywhere in the
-            United States.
+            {MONTHLY_PRICE}/month covers hosting, maintenance, domain management, and back-end support. Month to
+            month. Cancel anytime. No cancellation fee. I build for agents anywhere in the United States.
+          </p>
+          <p className="mt-4 text-sm text-gray-400 leading-6">
+            Washington clients pay Washington sales tax on website design and support. Hosting and domain
+            registration aren&apos;t taxed.
           </p>
         </div>
       </section>
@@ -69,9 +73,14 @@ export default function PricingPage() {
       <section className="py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Ready when you are.</h2>
-          <TrackedLink href="/contact" className="btn-primary inline-block" event="start_project_clicked" properties={{ location: 'pricing' }}>
-            Start a project
-          </TrackedLink>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link href="/start" className="btn-primary">
+              Start checklist
+            </Link>
+            <TrackedLink href="/contact" className="btn-secondary" event="start_project_clicked" properties={{ location: 'pricing' }}>
+              Start a project
+            </TrackedLink>
+          </div>
         </div>
       </section>
     </>
