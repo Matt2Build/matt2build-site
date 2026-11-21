@@ -1,10 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
-import { escapeHtml, sanitizePlainText, sanitizeSingleLine } from '@/lib/email-sanitize'
-import { clientAddress, isRateLimited } from '@/lib/rate-limit'
-import { normalizeWebsiteUrl } from '@/lib/website-url'
-
-const EMAIL_PATTERN = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
+import { escapeHtml } from '@/lib/email-sanitize'
+import { decideTeardown } from '@/lib/form-guard'
 
 function getResend() {
   const apiKey = process.env.RESEND_API_KEY
@@ -21,29 +18,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid request' }, { status: 400 })
     }
 
-    const data = body as Record<string, unknown>
-
-    if (typeof data.fax_number === 'string' && data.fax_number.trim() !== '') {
-      return NextResponse.json({ success: true })
+    const decision = await decideTeardown(request, body as Record<string, unknown>)
+    if (!decision.ok) {
+      if (decision.silent) return NextResponse.json({ success: true })
+      return NextResponse.json({ error: decision.error }, { status: decision.status })
     }
 
-    if (isRateLimited(`teardown:${clientAddress(request.headers)}`)) {
-      return NextResponse.json({ error: 'Please wait and try again.' }, { status: 429 })
-    }
-
-    const name = sanitizeSingleLine(data.name, 100)
-    const email = sanitizeSingleLine(data.email, 254)
-    const website = normalizeWebsiteUrl(data.website)
-    const market = sanitizeSingleLine(data.market, 160)
-    const goals = sanitizePlainText(data.goals, 4000)
-
-    if (!name || !email || !website) {
-      return NextResponse.json({ error: 'Name, email, and a website URL are required' }, { status: 400 })
-    }
-
-    if (!EMAIL_PATTERN.test(email)) {
-      return NextResponse.json({ error: 'Please provide a valid email address' }, { status: 400 })
-    }
+    const { name, email, website, market, goals } = decision.fields
 
     const safeName = escapeHtml(name)
     const safeEmail = escapeHtml(email)
