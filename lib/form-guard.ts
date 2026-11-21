@@ -14,6 +14,15 @@ const LIMITS = {
   message: 4000,
   goals: 4000,
   website: 300,
+  brokerage: 160,
+  disclosures: 1000,
+  areas: 300,
+  bio: 4000,
+  contactShown: 500,
+  registrar: 160,
+  styleNotes: 800,
+  likedSites: 800,
+  extraPages: 800,
 }
 
 export type GuardFailure = {
@@ -36,6 +45,23 @@ export type TeardownFields = {
   website: string
   market: string
   goals: string
+}
+
+export type StartFields = {
+  name: string
+  email: string
+  brokerage: string
+  disclosures: string
+  areas: string
+  logo: string
+  headshot: string
+  bio: string
+  contactShown: string
+  existingSite: string
+  registrar: string
+  styleNotes: string
+  likedSites: string
+  extraPages: string
 }
 
 export type GuardSuccess<T> = { ok: true; fields: T }
@@ -159,6 +185,107 @@ export function guardTeardown(
   return { ok: true, fields: { name, email, website, market, goals } }
 }
 
+function blankOrUrl(value: unknown): string | null {
+  const raw = sanitizeSingleLine(value, LIMITS.website)
+  if (!raw || raw.toLowerCase() === 'none') return ''
+  const url = normalizeWebsiteUrl(raw)
+  return url || null
+}
+
+export function guardStart(
+  headers: Headers,
+  data: Record<string, unknown>,
+  now = Date.now(),
+): GuardSuccess<StartFields> | GuardFailure {
+  const blocked = sharedChecks(headers, data, now)
+  if (blocked) return blocked
+
+  const capped =
+    exceedsCap(data.name, LIMITS.name) ||
+    exceedsCap(data.email, LIMITS.email) ||
+    exceedsCap(data.brokerage, LIMITS.brokerage) ||
+    exceedsCap(data.disclosures, LIMITS.disclosures) ||
+    exceedsCap(data.areas, LIMITS.areas) ||
+    exceedsCap(data.bio, LIMITS.bio) ||
+    exceedsCap(data.contact_shown, LIMITS.contactShown) ||
+    exceedsCap(data.logo_url, LIMITS.website) ||
+    exceedsCap(data.headshot_url, LIMITS.website) ||
+    exceedsCap(data.existing_site, LIMITS.website) ||
+    exceedsCap(data.registrar, LIMITS.registrar) ||
+    exceedsCap(data.style_notes, LIMITS.styleNotes) ||
+    exceedsCap(data.liked_sites, LIMITS.likedSites) ||
+    exceedsCap(data.extra_pages, LIMITS.extraPages)
+  if (capped) return fail(400, 'That message is too long.')
+
+  const name = sanitizeSingleLine(data.name, LIMITS.name)
+  const email = sanitizeSingleLine(data.email, LIMITS.email)
+  const brokerage = sanitizeSingleLine(data.brokerage, LIMITS.brokerage)
+  const disclosures = sanitizePlainText(data.disclosures, LIMITS.disclosures)
+  const areas = sanitizeSingleLine(data.areas, LIMITS.areas)
+  const contactShown = sanitizePlainText(data.contact_shown, LIMITS.contactShown)
+  const registrar = sanitizeSingleLine(data.registrar, LIMITS.registrar) || 'Not provided'
+  const styleNotes = sanitizePlainText(data.style_notes, LIMITS.styleNotes) || 'Not provided'
+  const likedSites = sanitizePlainText(data.liked_sites, LIMITS.likedSites) || 'Not provided'
+  const extraPages = sanitizePlainText(data.extra_pages, LIMITS.extraPages) || 'Not provided'
+  const writeBio = data.write_bio === true
+
+  if (!name || !email || !brokerage || !disclosures || !areas || !contactShown) {
+    return fail(400, 'Name, email, brokerage, disclosures, areas, and contact info are required')
+  }
+  if (!EMAIL_PATTERN.test(email)) {
+    return fail(400, 'Please provide a valid email address')
+  }
+
+  const logoChoice = data.logo_choice === 'none' || data.logo_choice === 'link' ? data.logo_choice : ''
+  if (!logoChoice) return fail(400, 'Say whether you have a logo link, or choose none.')
+  let logo = 'None'
+  if (logoChoice === 'link') {
+    const logoUrl = blankOrUrl(data.logo_url)
+    if (!logoUrl) return fail(400, 'Paste a link to your logo, or choose none.')
+    logo = logoUrl
+  }
+
+  const headshotUrl = blankOrUrl(data.headshot_url)
+  if (headshotUrl === null) return fail(400, 'That headshot link is not a web address.')
+  const headshot = headshotUrl || 'None'
+
+  const existingRaw = sanitizeSingleLine(data.existing_site, LIMITS.website)
+  let existingSite = 'None'
+  if (existingRaw && existingRaw.toLowerCase() !== 'none') {
+    const existingUrl = normalizeWebsiteUrl(existingRaw)
+    if (!existingUrl) return fail(400, 'That website or domain is not a web address.')
+    existingSite = existingUrl
+  }
+
+  const bioText = sanitizePlainText(data.bio, LIMITS.bio)
+  const bio = writeBio ? (bioText ? `Write it for me. Notes: ${bioText}` : 'Write it for me.') : bioText
+  if (!bio) return fail(400, 'Add a bio, or choose write it for me.')
+
+  if (isLinkHeavy([name, email, brokerage, disclosures, areas, bio, contactShown, styleNotes, extraPages])) {
+    return fail(400, 'Please remove extra links and try again.')
+  }
+
+  return {
+    ok: true,
+    fields: {
+      name,
+      email,
+      brokerage,
+      disclosures,
+      areas,
+      logo,
+      headshot,
+      bio,
+      contactShown,
+      existingSite,
+      registrar,
+      styleNotes,
+      likedSites,
+      extraPages,
+    },
+  }
+}
+
 export async function enforceSubmissionLimits(request: Request, now = Date.now()): Promise<GuardFailure | null> {
   const ip = clientAddress(request.headers)
   if (await ipRateLimited(request, ip)) {
@@ -180,6 +307,17 @@ export async function decideContact(
   if (!(await verifyTurnstile(data.turnstile_token, clientAddress(request.headers)))) {
     return fail(400, 'Please confirm you are a person and try again.')
   }
+  const limited = await enforceSubmissionLimits(request, now)
+  return limited ?? guarded
+}
+
+export async function decideStart(
+  request: Request,
+  data: Record<string, unknown>,
+  now = Date.now(),
+): Promise<GuardSuccess<StartFields> | GuardFailure> {
+  const guarded = guardStart(request.headers, data, now)
+  if (!guarded.ok) return guarded
   const limited = await enforceSubmissionLimits(request, now)
   return limited ?? guarded
 }

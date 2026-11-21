@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    'Custom real estate agent websites from a licensed realtor. $750 to build. Optional $50 a month for hosting and support.',
+    'Custom real estate agent websites from a licensed realtor. $750 to build. $50 a month for hosting, maintenance, domain management, and back-end support.',
   keywords: [
     'real estate agent website',
     'realtor website designer',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Real Estate Agent Website Builder | Matt2Build',
     description:
-      'Custom real estate agent websites from a licensed realtor. $750 to build. Optional $50 a month for hosting and support.',
+      'Custom real estate agent websites from a licensed realtor. $750 to build. $50 a month for hosting, maintenance, domain management, and back-end support.',
     type: 'website',
     locale: 'en_US',
     url: 'https://matt2build.com',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Real Estate Agent Website Builder | Matt2Build',
     description:
-      'Custom real estate agent websites from a licensed realtor. $750 to build. Optional $50 a month for hosting and support.',
+      'Custom real estate agent websites from a licensed realtor. $750 to build. $50 a month for hosting, maintenance, domain management, and back-end support.',
     creator: X_HANDLE,
     images: ['https://matt2build.com/og-image.png'],
   },

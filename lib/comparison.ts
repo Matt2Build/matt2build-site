@@ -16,7 +16,7 @@ export const comparisonRows: ComparisonRow[] = [
   {
     name: 'Matt2Build',
     upfront: '$750',
-    monthly: 'Optional $50 (hosting, maintenance, domain, back end)',
+    monthly: '$50 (hosting, maintenance, domain, back end)',
     design: 'Custom',
     listings: 'Not included',
     contract: 'Month to month',
