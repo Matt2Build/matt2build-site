@@ -17,12 +17,15 @@ const nextConfig = {
   },
   async redirects() {
     const hosts = ['www.brokerworkshop.com', 'matt2build.com', 'www.matt2build.com']
-    return hosts.map((host) => ({
+    const hostRedirects = hosts.map((host) => ({
       source: '/:path*',
       has: [{ type: 'host', value: host }],
       destination: 'https://brokerworkshop.com/:path*',
       statusCode: 308,
     }))
+    // Old /home links from the domain's previous owner should land on the homepage.
+    const legacyRedirects = [{ source: '/home', destination: '/', statusCode: 308 }]
+    return [...hostRedirects, ...legacyRedirects]
   },
   headers() {
     const turnstile = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY)
