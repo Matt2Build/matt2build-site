@@ -2,12 +2,12 @@ import Link from 'next/link'
 import { TrackedLink } from '@/components/tracked-link'
 import { JsonLd } from '@/components/json-ld'
 import { pageMetadata } from '@/lib/metadata'
-import { BUILD_PRICE, MONTHLY_PRICE, PRICE_LINE, standardStack } from '@/lib/site'
+import { BUILD_PRICE, MONTHLY_PRICE, standardStack } from '@/lib/site'
 import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Custom Website for Realtors'
 const description =
-  `Custom websites for realtors: design, bio, contact form, booking, SEO, and analytics. ${PRICE_LINE}`
+  `Custom websites for realtors: design, bio, contact form, booking, SEO, and analytics. ${BUILD_PRICE} to build, ${MONTHLY_PRICE}/mo for hosting and support.`
 
 export const metadata = pageMetadata({ title, description, path: '/services' })
 

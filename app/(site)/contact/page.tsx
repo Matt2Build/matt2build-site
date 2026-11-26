@@ -1,12 +1,12 @@
 import { ContactForm } from '@/components/contact-form'
 import { JsonLd } from '@/components/json-ld'
 import { pageMetadata } from '@/lib/metadata'
-import { CONTACT_EMAIL, PRICE_LINE } from '@/lib/site'
+import { BUILD_PRICE, CONTACT_EMAIL, MONTHLY_PRICE } from '@/lib/site'
 import { breadcrumbJsonLd, webPageJsonLd } from '@/lib/structured-data'
 
 const title = 'Realtor Website Designer'
 const description =
-  `Contact a realtor website designer about a custom real estate agent website. ${PRICE_LINE}`
+  `Contact a realtor website designer about a custom agent site. ${BUILD_PRICE} to build, ${MONTHLY_PRICE}/mo for hosting, updates, and support.`
 
 export const metadata = pageMetadata({ title, description, path: '/contact' })
 
